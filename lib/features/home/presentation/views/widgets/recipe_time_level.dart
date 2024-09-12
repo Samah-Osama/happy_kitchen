@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:happy_kitchen/core/utils/styles.dart';
+import 'package:happy_kitchen/features/home/presentation/views/widgets/vertical_circular_widget.dart';
+
+class RecipeTimeAndLevelWidget extends StatelessWidget {
+  const RecipeTimeAndLevelWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Text('60\nMin',
+              textAlign: TextAlign.center,
+              style: Styles.textStyle14..copyWith(fontWeight: FontWeight.bold)),
+         const  VerticalCircularWidget(length: 6),
+          Text('Hard\nLvl',
+              textAlign: TextAlign.center,
+              style: Styles.textStyle14.copyWith(fontWeight: FontWeight.bold)),
+        ],
+      ),
+    );
+  }
+}

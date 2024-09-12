@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:happy_kitchen/core/utils/styles.dart';
+import 'package:happy_kitchen/features/home/presentation/views/details_view.dart';
+import 'package:happy_kitchen/features/home/presentation/views/widgets/rating_widget.dart';
+import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_time_level.dart';
+
+class RecipeWidget extends StatelessWidget {
+  const RecipeWidget({super.key, this.color});
+  @override
+  final Color? color;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, DetailsView.id);
+      },
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Container(
+            height: 200.r,
+            width: 190.r,
+            padding: EdgeInsets.only(bottom: 24.r),
+            decoration: BoxDecoration(
+                color: color,
+                borderRadius: BorderRadius.circular(30.r),
+                boxShadow: [
+                  BoxShadow(blurStyle: BlurStyle.outer, blurRadius: 2.r)
+                ]),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                const Text('Recipe Name', style: Styles.textStyle16),
+                SizedBox(height: 8.r),
+                const RatingWidget(),
+                SizedBox(height: 12.r),
+                const RecipeTimeAndLevelWidget(),
+              ],
+            ),
+          ),
+          Positioned(
+              left: 25.r,
+              bottom: 130.r,
+              child: Image.asset('assets/images/dish.png', height: 93.r))
+        ],
+      ),
+    );
+  }
+}
