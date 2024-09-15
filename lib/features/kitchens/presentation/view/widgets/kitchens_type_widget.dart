@@ -14,8 +14,8 @@ class KitchensTypeWidget extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          height: 170.h,
-          width: 160.w,
+          height: 170.r,
+          width: 160.r,
           decoration: BoxDecoration(
             color: ThemeColorHelper.getLightGreyAndPink(context),
             borderRadius: BorderRadius.circular(32.r),
@@ -33,7 +33,7 @@ class KitchensTypeWidget extends StatelessWidget {
         ),
         Positioned(
             bottom: 80.r,
-            height: 150.h,
+            height: 150.r,
             left: 20.r,
             child: Image.asset(
               'assets/images/women.png',

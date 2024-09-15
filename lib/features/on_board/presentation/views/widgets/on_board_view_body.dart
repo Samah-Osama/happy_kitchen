@@ -9,7 +9,7 @@ class OnBoardViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 40.0.r),
+        SizedBox(height: 40.h),
         const Stack(
           children: [
             OnBoardImage(),

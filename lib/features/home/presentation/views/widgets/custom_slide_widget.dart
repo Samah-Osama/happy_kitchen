@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/slide_image.dart';
 
-class CustomSlideWidge extends StatelessWidget {
-  const CustomSlideWidge({super.key});
+class CustomSlideWidget extends StatelessWidget {
+  const CustomSlideWidget({super.key});
   @override
   final List<String> sliderList = const [
     "assets/images/banner1.jpg",

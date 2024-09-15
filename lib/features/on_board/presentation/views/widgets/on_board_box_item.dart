@@ -15,13 +15,13 @@ class OnBoardBoxWelcomeItem extends StatelessWidget {
       children: [
         Text("Simplify your \ncooking plan",
             style: Styles.textStyle28.copyWith(color: kLightFontColor)),
-        SizedBox(height: 24.0.r),
+        SizedBox(height: 24.0.h),
         Text(
           textAlign: TextAlign.center,
           "No more confused about \nyour meal menu",
           style: Styles.textStyle18.copyWith(color: kDarkGreyFontColor),
         ),
-         SizedBox(height: 28.0.r),
+         SizedBox(height: 28.0.h),
     const  LetsGoButton(),
       ],
     );

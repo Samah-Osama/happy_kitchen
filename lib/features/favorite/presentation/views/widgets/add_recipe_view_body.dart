@@ -1,6 +1,8 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/constant.dart';
+import 'package:happy_kitchen/features/favorite/presentation/views/widgets/add_recipe_image.dart';
 import 'package:happy_kitchen/features/favorite/presentation/views/widgets/custom_text_form_field.dart';
 
 enum Levels { easy, medium, hard }
@@ -16,6 +18,7 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
   String? title, time, ingredients, steps;
   String? rating;
   Levels? recipeLevel;
+  // File? pickedImage;
 
   GlobalKey<FormState> formKey = GlobalKey();
   @override
@@ -33,6 +36,8 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                 title = value;
               },
             ),
+            SizedBox(height: 15.h),
+            const AddRecipeImage(),
             SizedBox(height: 15.h),
             CustomTextFormField(
               keyboardType: TextInputType.number,
@@ -91,7 +96,6 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                 steps = value;
               },
             ),
-            
           ],
         ),
       ),

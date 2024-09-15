@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: ScreenUtil.defaultSize,
+      designSize: const Size(357, 812),
       child: MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => ThemeCubit()),

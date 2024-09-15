@@ -11,10 +11,10 @@ class AllKitchensBody extends StatelessWidget {
       child: GridView.builder(
           padding: EdgeInsets.only(top: 80.r),
           itemCount: 10,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: 1.0,
-            mainAxisSpacing: 90.0,
+            childAspectRatio: 1.0.r,
+            mainAxisSpacing: 90.0.r,
           ),
           itemBuilder: (context, index) {
             return const KitchensTypeWidget();

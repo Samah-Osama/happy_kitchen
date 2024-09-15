@@ -16,8 +16,8 @@ class LetsGoButton extends StatelessWidget {
         Navigator.pushNamed(context, HomeView.id);
       },
       child: Container(
-        height: 50.r,
-        width: 220.r,
+        height: 50.h,
+        width: 220.h,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: kPrimaryColorDarkMode,

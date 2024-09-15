@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:happy_kitchen/Dashboard.dart';
 import 'package:happy_kitchen/Favorits.dart';
 import 'package:happy_kitchen/constant.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 import 'package:happy_kitchen/features/home/presentation/views/dashboard_view.dart';
 import 'package:happy_kitchen/features/favorite/presentation/views/favorite_view.dart';
-import 'package:happy_kitchen/features/home/presentation/views/widgets/all_recipes.dart';
 import 'package:happy_kitchen/features/kitchens/presentation/view/all_kitchen_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -32,7 +30,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: SizedBox(
-        height: 80.r,
+        height: 90.h,
         child: BottomNavigationBar(
           elevation: 0,
           type: BottomNavigationBarType.fixed,

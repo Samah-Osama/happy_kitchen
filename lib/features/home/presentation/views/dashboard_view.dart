@@ -11,13 +11,13 @@ class DashBoardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      slivers:  [
-      const  SliverToBoxAdapter(
+      slivers: [
+        const SliverToBoxAdapter(
           child: Column(
             children: [
-               CustomeDashBoardViewAppBar(),
-               CustomSlideWidge(),
-               CustomText(),
+              CustomDashBoardViewAppBar(),
+              CustomSlideWidget(),
+              CustomText(),
               CategoryListView(),
             ],
           ),
@@ -29,5 +29,3 @@ class DashBoardView extends StatelessWidget {
     );
   }
 }
-
-

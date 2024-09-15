@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/services/theme_service/cubit/theme_cubit.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custom_app_bar_text.dart';
 
-class CustomeDashBoardViewAppBar extends StatelessWidget {
-  const CustomeDashBoardViewAppBar({
+class CustomDashBoardViewAppBar extends StatelessWidget {
+  const CustomDashBoardViewAppBar({
     super.key,
   });
 

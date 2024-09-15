@@ -13,7 +13,7 @@ class OnBoardWelcomeBox extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 30.r),
       child: Container(
-        height: 330,
+        height: 330.h,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           color: kDarkColor,
