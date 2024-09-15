@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -9,7 +10,8 @@ class CustomTextFormField extends StatelessWidget {
     this.keyboardType,
     this.onSaved,
     this.validatorMessage,
-    this.labelText, this.maxLines,
+    this.labelText,
+    this.maxLines,
   });
   final void Function(String)? onChanged;
   final String? hintText;
@@ -34,8 +36,9 @@ class CustomTextFormField extends StatelessWidget {
       onSaved: onSaved,
       decoration: InputDecoration(
           labelText: labelText,
-          labelStyle:
-              TextStyle(color: ThemeColorHelper.getWhiteAndBlack(context)),
+          labelStyle: Styles.textStyle16.copyWith(
+              fontWeight: FontWeight.w500,
+              color: ThemeColorHelper.getWhiteAndBlack(context)),
           hintText: hintText,
           hintStyle:
               TextStyle(color: ThemeColorHelper.getWhiteAndBlack(context))),
