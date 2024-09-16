@@ -16,7 +16,7 @@ class HomeRepoImplementation implements HomeRepo {
       for (var recipe in data) {
         allRecipeList.add(AllRecipeModel.fromJson(recipe));
       }
-      print(allRecipeList);
+      // print(allRecipeList);
       return right(allRecipeList);
     } catch (e) {
       if (e is DioException) {

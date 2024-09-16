@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/service_locator.dart';
 import 'package:happy_kitchen/core/utils/services/theme_service/cubit/theme_cubit.dart';
+import 'package:happy_kitchen/core/utils/simple_bloc_observer.dart';
 import 'package:happy_kitchen/features/favorite/presentation/views/add_recipe_view.dart';
 import 'package:happy_kitchen/features/home/data/repos/home_repo_implementation%20.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
@@ -20,6 +21,7 @@ void main() {
   //     statusBarColor: Colors.transparent,
   //   ),
   // );
+  Bloc.observer = SimpleBlocObserver();
   setupServiceLocator();
   runApp(const MyApp());
 }
