@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/service_locator.dart';
 import 'package:happy_kitchen/core/utils/services/theme_service/cubit/theme_cubit.dart';
 import 'package:happy_kitchen/features/favorite/presentation/views/add_recipe_view.dart';
+import 'package:happy_kitchen/features/home/data/repos/home_repo_implementation%20.dart';
+import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
 import 'package:happy_kitchen/features/home/presentation/views/details_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/home_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/all_recipes.dart';
@@ -33,6 +35,11 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => ThemeCubit()),
+          BlocProvider(
+            create: (context) => AllRecipesCubit(
+              getIt.get<HomeRepoImplementation>(),
+            ),
+          ),
         ],
         child: BlocBuilder<ThemeCubit, ThemeData>(
           builder: (context, state) {
