@@ -20,7 +20,3 @@ class OnBoardViewBody extends StatelessWidget {
     );
   }
 }
-
-
-
-

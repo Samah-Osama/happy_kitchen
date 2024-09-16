@@ -5,7 +5,6 @@ import 'package:happy_kitchen/features/home/presentation/views/widgets/category_
 class CategoryListView extends StatelessWidget {
   const CategoryListView({super.key});
   @override
- 
   Widget build(BuildContext context) {
     return SizedBox(
       height: 70.r,

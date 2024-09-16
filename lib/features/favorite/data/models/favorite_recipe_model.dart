@@ -1,22 +1,19 @@
-import 'dart:io';
-import 'package:happy_kitchen/AddRecipe.dart';
+import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
-class FavoriteRecipeModel {
+class FavoriteRecipeModel extends HiveObject {
   final String title;
-
-  final File image;
-  final int rating;
+  final Image image;
+  // final double rating;
   final String recipeTime;
-  final Level level;
+  // final Level level;
   final String ingredients;
   final String steps;
 
   FavoriteRecipeModel(
       {required this.title,
       required this.image,
-      required this.rating,
       required this.recipeTime,
-      required this.level,
       required this.ingredients,
       required this.steps});
 }

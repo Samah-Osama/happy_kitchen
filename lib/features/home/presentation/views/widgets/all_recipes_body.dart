@@ -13,7 +13,6 @@ class AllRecipesBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 10.r),
               SizedBox(height: 30.r),
               const SingleChildScrollView(
                 scrollDirection: Axis.horizontal,

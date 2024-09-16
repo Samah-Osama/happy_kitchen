@@ -21,10 +21,9 @@ class OnBoardBoxWelcomeItem extends StatelessWidget {
           "No more confused about \nyour meal menu",
           style: Styles.textStyle18.copyWith(color: kDarkGreyFontColor),
         ),
-         SizedBox(height: 28.0.h),
-    const  LetsGoButton(),
+        SizedBox(height: 28.0.h),
+        const LetsGoButton(),
       ],
     );
   }
 }
-

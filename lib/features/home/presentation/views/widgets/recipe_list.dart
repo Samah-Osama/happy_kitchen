@@ -10,9 +10,7 @@ class RecipesList extends StatelessWidget {
         delegate: SliverChildBuilderDelegate(childCount: 10, (context, index) {
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: 15.r),
-            child: const RecipeWidget(
-              
-            ),
+            child: const RecipeWidget(),
           );
         }),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
