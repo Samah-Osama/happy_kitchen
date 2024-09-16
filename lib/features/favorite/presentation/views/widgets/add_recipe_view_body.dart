@@ -16,7 +16,7 @@ class AddRecipeViewBody extends StatefulWidget {
 
 class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
   String? title, time, ingredients, steps;
-  String? rating;
+  double? rating;
   Levels? recipeLevel;
   // File? pickedImage;
 
@@ -40,15 +40,15 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
               SizedBox(height: 15.h),
               const AddRecipeImage(),
               SizedBox(height: 15.h),
-              CustomTextFormField(
+              CustomRatingTextFormField(
                 keyboardType: TextInputType.number,
                 labelText: 'Rating (1-5)',
                 validatorMessage: 'Please enter a valid rating',
                 onChanged: (value) {
-                  rating = value;
+                  rating = double.tryParse(value);
                 },
               ),
-              CustomTextFormField(
+              CustomRecipeTimeTextFormField(
                 keyboardType: TextInputType.number,
                 labelText: "Time (in minutes)",
                 validatorMessage: 'Please enter the time',
@@ -106,7 +106,11 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                   style: ElevatedButton.styleFrom(
                       backgroundColor:
                           ThemeColorHelper.getPrimaryColor(context)),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      Navigator.pop(context);
+                    }
+                  },
                   child: Text(
                     'Save',
                     style: Styles.textStyle22.copyWith(color: Colors.black),

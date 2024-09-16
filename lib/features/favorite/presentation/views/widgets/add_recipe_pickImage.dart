@@ -26,7 +26,10 @@ class _AddRecipeImageState extends State<AddRecipeImage> {
                     size: 50,
                     color: Colors.grey.shade800,
                   )
-                : Image.file(pickedImage!)),
+                : Image.file(
+                    pickedImage!,
+                    fit: BoxFit.fill,
+                  )),
       ),
     );
   }
