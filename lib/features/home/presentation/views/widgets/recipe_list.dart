@@ -31,7 +31,7 @@ class _RecipesListState extends State<RecipesList> {
                 SliverChildBuilderDelegate(childCount: 10, (context, index) {
               return Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15.r),
-                child: const RecipeWidget(),
+                child: RecipeWidget(recipeModel: state.allRecipes[index]),
               );
             }),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

@@ -8,6 +8,7 @@ import 'package:happy_kitchen/features/home/data/repos/home_repo.dart';
 class HomeRepoImplementation implements HomeRepo {
   final ApiService apiService;
   HomeRepoImplementation({required this.apiService});
+  @override
   Future<Either<Failure, List<AllRecipeModel>>> fetchAllRecipes() async {
     try {
       var data = await apiService.get(
