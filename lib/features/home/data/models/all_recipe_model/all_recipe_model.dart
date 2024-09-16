@@ -14,8 +14,8 @@ class AllRecipeModel extends Equatable {
   final int rating;
 
   const AllRecipeModel({
-  required this.id,
-  required   this.title,
+    required this.id,
+    required this.title,
     this.description,
     required this.image,
     required this.preparationTime,
