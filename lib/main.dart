@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:happy_kitchen/core/utils/service_locator.dart';
 import 'package:happy_kitchen/core/utils/services/theme_service/cubit/theme_cubit.dart';
 import 'package:happy_kitchen/features/favorite/presentation/views/add_recipe_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/details_view.dart';
@@ -12,12 +12,13 @@ import 'package:happy_kitchen/features/home/presentation/views/recipe_by_categor
 import 'package:happy_kitchen/features/on_board/presentation/views/on_board_view.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarBrightness: Brightness.light,
-      statusBarColor: Colors.transparent,
-    ),
-  );
+  // SystemChrome.setSystemUIOverlayStyle(
+  //   const SystemUiOverlayStyle(
+  //     statusBarBrightness: Brightness.light,
+  //     statusBarColor: Colors.transparent,
+  //   ),
+  // );
+  setupServiceLocator();
   runApp(const MyApp());
 }
 
