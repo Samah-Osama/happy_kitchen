@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/assets.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
+import 'package:happy_kitchen/features/home/presentation/views/recipe_by_category_view.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({super.key});
@@ -11,6 +12,9 @@ class CategoryWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 30),
       child: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, RecipeByCategoryView.id);
+        },
         child: Container(
           width: 160.r,
           height: 50.r,

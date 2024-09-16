@@ -7,6 +7,7 @@ import 'package:happy_kitchen/features/favorite/presentation/views/add_recipe_vi
 import 'package:happy_kitchen/features/home/presentation/views/details_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/home_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/all_recipes.dart';
+import 'package:happy_kitchen/features/home/presentation/views/recipe_by_category_view.dart';
 import 'package:happy_kitchen/features/on_board/presentation/views/on_board_view.dart';
 
 void main() {
@@ -48,6 +49,8 @@ class MyApp extends StatelessWidget {
                 AllRecipes.id: (context) => const AllRecipes(),
                 DetailsView.id: (context) => const DetailsView(),
                 AddRecipeView.id: (context) => const AddRecipeView(),
+                RecipeByCategoryView.id: (context) =>
+                    const RecipeByCategoryView(),
               },
               home: const OnBoardView(),
             );
