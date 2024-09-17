@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
-import 'package:happy_kitchen/features/favorite/presentation/views/add_recipe_view.dart';
+import 'package:happy_kitchen/features/add_recipe/presentation/views/add_recipe_view.dart';
 
 class AddRecipeIcon extends StatelessWidget {
   const AddRecipeIcon({

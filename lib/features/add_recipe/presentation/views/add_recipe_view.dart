@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
-import 'package:happy_kitchen/features/favorite/presentation/views/widgets/add_recipe_view_body.dart';
+import 'package:happy_kitchen/features/add_recipe/presentation/views/widgets/add_recipe_view_body.dart';
 
 class AddRecipeView extends StatelessWidget {
   const AddRecipeView({super.key});
