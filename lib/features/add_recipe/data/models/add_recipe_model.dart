@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-
-class FavoriteRecipeModel extends HiveObject {
+part 'add_recipe_model.g.dart';
+@HiveType(typeId: 0)
+class AddRecipeModel extends HiveObject {
+  @HiveField(0)
   final String title;
+  @HiveField(1)
   final Image image;
-  // final double rating;
+  @HiveField(2)
   final String recipeTime;
-  // final Level level;
+  @HiveField(3)
   final String ingredients;
+  @HiveField(4)
   final String steps;
-
-  FavoriteRecipeModel(
+  AddRecipeModel(
       {required this.title,
       required this.image,
       required this.recipeTime,
