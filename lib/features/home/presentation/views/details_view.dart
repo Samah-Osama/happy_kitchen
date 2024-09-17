@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/details_view_body.dart';
 
 class DetailsView extends StatelessWidget {
@@ -6,8 +7,9 @@ class DetailsView extends StatelessWidget {
   static String id = 'DetailsView';
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: DetailsViewBody(),
+  var recipeModel = ModalRoute.of(context)!.settings.arguments as AllRecipeModel;
+    return  Scaffold(
+      body: DetailsViewBody(recipeModel: recipeModel),
     );
   }
 }

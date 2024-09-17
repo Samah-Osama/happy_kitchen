@@ -15,7 +15,7 @@ class RecipeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, DetailsView.id);
+        Navigator.pushNamed(context, DetailsView.id, arguments: recipeModel);
       },
       child: Stack(
         clipBehavior: Clip.none,
@@ -37,7 +37,7 @@ class RecipeWidget extends StatelessWidget {
                 SizedBox(height: 8.r),
                 RatingWidget(recipeModel: recipeModel),
                 SizedBox(height: 12.r),
-                const RecipeTimeAndLevelWidget(),
+                RecipeTimeAndLevelWidget(recipeModel: recipeModel),
               ],
             ),
           ),

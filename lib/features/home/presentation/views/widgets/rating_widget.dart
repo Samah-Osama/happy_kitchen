@@ -10,7 +10,7 @@ class RatingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(recipeModel.rating.bitLength, (index) {
+        children: List.generate(5, (index) {
           return SizedBox(
               width: 20.r,
               height: 20.r,
