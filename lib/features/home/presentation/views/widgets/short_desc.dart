@@ -7,11 +7,12 @@ class ShortDesc extends StatelessWidget {
   const ShortDesc({super.key, required this.recipeModel});
   @override
   final AllRecipeModel recipeModel;
+  @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        CustomShortDescItem(text1: '30 Minutes', type: 'Cooking'),
+        const CustomShortDescItem(text1: '30 Minutes', type: 'Cooking'),
         const VerticalCircularWidget(length: 12),
         CustomShortDescItem(text1: '${recipeModel.rating}', type: 'Rating'),
         const VerticalCircularWidget(length: 12),

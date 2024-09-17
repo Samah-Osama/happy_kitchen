@@ -36,8 +36,9 @@ class ServerFailure extends Failure {
   }
   factory ServerFailure.fromRespose(int statusCode, jsonData) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(errorMessage: jsonData['error']['message']);
-    } else if (statusCode == 500) {
+      return ServerFailure(errorMessage: jsonData["detail"]);
+    }
+    else if (statusCode == 500) {
       return ServerFailure(
           errorMessage: ' Internal Server Error , Please try later');
     } else if (statusCode == 404) {

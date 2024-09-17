@@ -5,7 +5,7 @@ import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/dash_mark.dart';
-import 'package:happy_kitchen/features/home/presentation/views/widgets/instructions_and_ingredient_section.dart';
+import 'package:happy_kitchen/features/home/presentation/views/widgets/steps_and_ingredient_section.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/short_desc.dart';
 
 class RecipeDetailsWidget extends StatelessWidget {
@@ -43,7 +43,7 @@ class RecipeDetailsWidget extends StatelessWidget {
               SizedBox(height: 30.h),
               ShortDesc(recipeModel: recipeModel),
               SizedBox(height: 28.h),
-              const InstructionsAndIngredientSection(),
+              const StepsAndIngredientSection(),
               SizedBox(height: 28.h),
             ],
           ),

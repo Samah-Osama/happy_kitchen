@@ -3,19 +3,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 
-class InstructionsAndIngredientButton extends StatefulWidget {
-  const InstructionsAndIngredientButton({
+class StepsAndIngredientButton extends StatefulWidget {
+  const StepsAndIngredientButton({
     super.key,
   });
 
   @override
-  State<InstructionsAndIngredientButton> createState() =>
-      _InstructionsAndIngredientButtonState();
+  State<StepsAndIngredientButton> createState() =>
+      _StepsAndIngredientButtonState();
 }
 
-class _InstructionsAndIngredientButtonState
-    extends State<InstructionsAndIngredientButton> {
-  List<String> tabs = ["Instructions", "Ingredients"];
+class _StepsAndIngredientButtonState extends State<StepsAndIngredientButton> {
+  List<String> tabs = ["Steps", "Ingredients"];
   int selectedItem = 0;
   @override
   Widget build(BuildContext context) {
@@ -56,8 +55,8 @@ class _InstructionsAndIngredientButtonState
   }
 }
 
-class CustomInstructionsAndIngredientButton extends StatelessWidget {
-  const CustomInstructionsAndIngredientButton({
+class CustomStepsAndIngredientButton extends StatelessWidget {
+  const CustomStepsAndIngredientButton({
     super.key,
     required this.text,
     this.onTap,

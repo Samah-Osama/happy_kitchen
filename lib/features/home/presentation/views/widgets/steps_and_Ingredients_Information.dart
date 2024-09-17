@@ -4,8 +4,8 @@ import 'package:happy_kitchen/core/functions/show_dialog_recipe_information.dart
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 
-class InstructionsAndIngredientsInformation extends StatelessWidget {
-  const InstructionsAndIngredientsInformation({
+class StepsAndIngredientsInformation extends StatelessWidget {
+  const StepsAndIngredientsInformation({
     super.key,
     required this.text,
   });

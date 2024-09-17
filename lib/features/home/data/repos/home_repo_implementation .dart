@@ -40,4 +40,32 @@ class HomeRepoImplementation implements HomeRepo {
     // TODO: implement fetchRecipesDetails
     throw UnimplementedError();
   }
+
+  @override
+  Future<Either<Failure, List<AllRecipeModel>>> fetchAllRecipesByCategory(
+      {required String category}) async {
+    try {
+      var data = await apiService.get(
+          endpoint:
+              'http://88.223.94.70:8085/api/recipes/AllRecipesByLanguage?language=EN&page=0&size=10&category=$category');
+      List<AllRecipeModel> allRecipeList = [];
+      for (var recipe in data) {
+        allRecipeList.add(AllRecipeModel.fromJson(recipe));
+      }
+      // print(allRecipeList);
+      return right(allRecipeList);
+    } catch (e) {
+      if (e is DioException) {
+        return left(
+          ServerFailure.fromDioException(e),
+        );
+      } else {
+        return left(
+          ServerFailure(
+            errorMessage: e.toString(),
+          ),
+        );
+      }
+    }
+  }
 }

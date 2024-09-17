@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/assets.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
+import 'package:happy_kitchen/features/home/presentation/view_model/recipe_by_category/recipe_by_category_cubit.dart';
 import 'package:happy_kitchen/features/home/presentation/views/recipe_by_category_view.dart';
 
 class CategoryWidget extends StatelessWidget {
-  const CategoryWidget({super.key});
+  const CategoryWidget({
+    super.key, required this.categoryName,
+  });
+  final String categoryName;
+  @override
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,6 +20,8 @@ class CategoryWidget extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           Navigator.pushNamed(context, RecipeByCategoryView.id);
+          // BlocProvider.of<RecipeByCategoryCubit>(context)
+          //     .getRecipesByCategory(category: categoryName);
         },
         child: Container(
           width: 160.r,
@@ -33,7 +41,7 @@ class CategoryWidget extends StatelessWidget {
                 child: Image.asset(AssetsData.kLogo),
               ),
               Text(
-                'Breakfast',
+                categoryName,
                 style: Styles.textStyle20
                     .copyWith(fontWeight: FontWeight.w700, color: Colors.black),
               )
