@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:happy_kitchen/constant.dart';
 import 'package:happy_kitchen/core/utils/service_locator.dart';
 import 'package:happy_kitchen/core/utils/services/theme_service/cubit/theme_cubit.dart';
 import 'package:happy_kitchen/core/utils/simple_bloc_observer.dart';
+import 'package:happy_kitchen/features/add_recipe/data/models/add_recipe_model.dart';
 import 'package:happy_kitchen/features/add_recipe/presentation/views/add_recipe_view.dart';
 import 'package:happy_kitchen/features/home/data/repos/home_repo_implementation%20.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
@@ -13,14 +15,18 @@ import 'package:happy_kitchen/features/home/presentation/views/home_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/all_recipes.dart';
 import 'package:happy_kitchen/features/home/presentation/views/recipe_by_category_view.dart';
 import 'package:happy_kitchen/features/on_board/presentation/views/on_board_view.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+void main() async {
   // SystemChrome.setSystemUIOverlayStyle(
   //   const SystemUiOverlayStyle(
   //     statusBarBrightness: Brightness.light,
   //     statusBarColor: Colors.transparent,
   //   ),
   // );
+  await Hive.initFlutter();
+  await Hive.openBox(kRecipeBox);
+  Hive.registerAdapter(AddRecipeModelAdapter());
   Bloc.observer = SimpleBlocObserver();
   setupServiceLocator();
   runApp(const MyApp());
