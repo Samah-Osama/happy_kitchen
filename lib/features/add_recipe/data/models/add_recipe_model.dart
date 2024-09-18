@@ -5,8 +5,8 @@ part 'add_recipe_model.g.dart';
 class AddRecipeModel extends HiveObject {
   @HiveField(0)
   final String title;
-  @HiveField(1)
-  final Image image;
+  // @HiveField(1)
+ final Image? image;
   @HiveField(2)
   final String recipeTime;
   @HiveField(3)
@@ -15,7 +15,7 @@ class AddRecipeModel extends HiveObject {
   final String steps;
   AddRecipeModel(
       {required this.title,
-      required this.image,
+      this.image,
       required this.recipeTime,
       required this.ingredients,
       required this.steps});

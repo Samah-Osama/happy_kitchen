@@ -1,10 +1,11 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
-import 'package:happy_kitchen/features/add_recipe/presentation/views/widgets/add_recipe_pickImage.dart';
+import 'package:happy_kitchen/features/add_recipe/data/models/add_recipe_model.dart';
+import 'package:happy_kitchen/features/add_recipe/presentation/view_model/add_recipe_cubit/add_recipe_cubit.dart';
 import 'package:happy_kitchen/features/add_recipe/presentation/views/widgets/custom_text_form_field.dart';
 
 class AddRecipeViewBody extends StatefulWidget {
@@ -15,10 +16,11 @@ class AddRecipeViewBody extends StatefulWidget {
 }
 
 class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
-  String? title, time, ingredients, steps;
+  String? title, ingredients, steps;
+  double? time;
   // double? rating;
 
-  File? pickedImage;
+  // File? pickedImage;
 
   GlobalKey<FormState> formKey = GlobalKey();
   @override
@@ -38,7 +40,7 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                 },
               ),
               SizedBox(height: 15.h),
-              const AddRecipeImage(),
+              // const AddRecipeImage(),
               SizedBox(height: 15.h),
               // CustomRatingTextFormField(
               //   keyboardType: TextInputType.number,
@@ -53,7 +55,7 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                 labelText: "Time (in minutes)",
                 validatorMessage: 'Please enter the time',
                 onChanged: (value) {
-                  time = value;
+                  time = double.tryParse(value);
                 },
               ),
               // DropdownButtonFormField(
@@ -108,7 +110,14 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                           ThemeColorHelper.getPrimaryColor(context)),
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      Navigator.pop(context);
+                      var recipe = AddRecipeModel(
+                          title: title!,
+                          // image: pickedImage?.path ?? '',
+                          recipeTime: time.toString(),
+                          ingredients: ingredients!,
+                          steps: steps!);
+                      BlocProvider.of<AddRecipeCubit>(context)
+                          .addRecipe(recipe);
                     }
                   },
                   child: Text(
