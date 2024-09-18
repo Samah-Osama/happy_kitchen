@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/Favorits.dart';
 import 'package:happy_kitchen/constant.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
+import 'package:happy_kitchen/features/add_recipe/presentation/views/add_recipe_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/dashboard_view.dart';
 import 'package:happy_kitchen/features/favorite/presentation/views/favorite_view.dart';
 import 'package:happy_kitchen/features/kitchens/presentation/view/all_kitchen_view.dart';
@@ -20,7 +21,8 @@ List<Widget> views = [
   const DashBoardView(),
   const AllKitchensView(),
   const FavoritesView(),
-  const FavoritsScreen(),
+  const AddRecipeView()
+  // const FavoritsScreen(),
 //  AllRecipesScreen()
   // const AllRecipes()
 ];

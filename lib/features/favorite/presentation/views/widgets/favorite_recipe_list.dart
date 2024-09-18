@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class FavoritsRecipesList extends StatelessWidget {
-  const FavoritsRecipesList({
+class FavoritesRecipesList extends StatelessWidget {
+  const FavoritesRecipesList({
     super.key,
   });
 
