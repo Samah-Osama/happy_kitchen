@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
-import 'package:happy_kitchen/features/add_recipe/data/models/add_recipe_model.dart';
-import 'package:happy_kitchen/features/add_recipe/presentation/view_model/add_recipe_cubit/add_recipe_cubit.dart';
-import 'package:happy_kitchen/features/add_recipe/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:happy_kitchen/features/my_own_recipes/data/models/add_recipe_model.dart';
+import 'package:happy_kitchen/features/my_own_recipes/presentation/view_model/add_recipe_cubit/add_recipe_cubit.dart';
+import 'package:happy_kitchen/features/my_own_recipes/presentation/views/widgets/custom_text_form_field.dart';
 
 class AddRecipeViewBody extends StatefulWidget {
   const AddRecipeViewBody({super.key});

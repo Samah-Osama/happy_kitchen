@@ -55,4 +55,5 @@ class ThemeColorHelper {
         ? kWhiteColor
         : Colors.black;
   }
+  
 }

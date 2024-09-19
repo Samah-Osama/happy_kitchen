@@ -35,7 +35,9 @@ class _RecipesListState extends State<RecipesList> {
               );
             }),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                mainAxisSpacing: 80.r, crossAxisCount: 2),
+                childAspectRatio: 1.0,
+                mainAxisSpacing: 80.r,
+                crossAxisCount: 2),
           );
         } else if (state is AllRecipesFailure) {
           return SliverToBoxAdapter(

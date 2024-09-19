@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:happy_kitchen/core/functions/snack_bar.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
-import 'package:happy_kitchen/features/add_recipe/presentation/view_model/add_recipe_cubit/add_recipe_cubit.dart';
-import 'package:happy_kitchen/features/add_recipe/presentation/views/widgets/add_recipe_view_body.dart';
+import 'package:happy_kitchen/features/my_own_recipes/presentation/view_model/add_recipe_cubit/add_recipe_cubit.dart';
+import 'package:happy_kitchen/features/my_own_recipes/presentation/views/widgets/add_recipe_view_body.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class AddRecipeView extends StatefulWidget {

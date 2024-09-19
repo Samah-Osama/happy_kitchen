@@ -21,8 +21,8 @@ class RecipeWidget extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Container(
-            height: 200.r,
-            width: 190.r,
+            height: 200.h,
+            width: 190.w,
             padding: EdgeInsets.only(bottom: 24.r),
             decoration: BoxDecoration(
                 color: color,

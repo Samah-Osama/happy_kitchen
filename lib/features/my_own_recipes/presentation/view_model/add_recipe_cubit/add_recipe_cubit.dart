@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:happy_kitchen/constant.dart';
-import 'package:happy_kitchen/features/add_recipe/data/models/add_recipe_model.dart';
+import 'package:happy_kitchen/features/my_own_recipes/data/models/add_recipe_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 part 'add_recipe_state.dart';
