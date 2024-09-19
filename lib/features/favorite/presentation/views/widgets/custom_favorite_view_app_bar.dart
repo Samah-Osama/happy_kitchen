@@ -31,7 +31,8 @@ class FavoriteRecipesButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return TextButton(
+      onPressed: () {},
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
@@ -63,7 +64,8 @@ class MyRecipesButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return TextButton(
+      onPressed: () {},
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),

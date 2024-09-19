@@ -9,6 +9,8 @@ import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_li
 class DashBoardView extends StatelessWidget {
   const DashBoardView({super.key});
   @override
+  static String id = 'DashBoardView';
+  @override
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [

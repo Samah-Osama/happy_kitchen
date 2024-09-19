@@ -12,7 +12,7 @@ class AddRecipeCubit extends Cubit<AddRecipeState> {
   addRecipe(AddRecipeModel recipe) async {
     emit(AddRecipeLoading());
     try {
-      var recipeBox = Hive.box(kRecipeBox);
+      var recipeBox = Hive.box<AddRecipeModel>(kRecipeBox);
       await recipeBox.add(recipe);
       emit(AddRecipeSuccess());
     } catch (e) {

@@ -20,32 +20,32 @@ class _AddRecipeViewState extends State<AddRecipeView> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AddRecipeCubit(),
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text("Add a Recipe"),
-          foregroundColor: ThemeColorHelper.getPrimaryColor(context),
-        ),
-        body: BlocConsumer<AddRecipeCubit, AddRecipeState>(
-          listener: (context, state) {
-            if (state is AddRecipeLoading) {
-              isLoading = true;
-            } else if (state is AddRecipeSuccess) {
-              isLoading = false;
-              showSnackBar(context, 'Recipe added successfully');
-            } else if (state is AddRecipeFailure) {
-              isLoading = false;
-              showSnackBar(context, state.errorMessage);
-              print(state.errorMessage);
-            }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD(
-              inAsyncCall: isLoading,
-              child: const AddRecipeViewBody(),
-            );
-          },
-        ),
+      child: BlocConsumer<AddRecipeCubit, AddRecipeState>(
+        listener: (context, state) {
+           if (state is AddRecipeLoading) {
+                    isLoading = true;
+                  } else if (state is AddRecipeSuccess) {
+                    isLoading = false;
+                    showSnackBar(context, 'Recipe added successfully');
+                  } else if (state is AddRecipeFailure) {
+                    isLoading = false;
+                    showSnackBar(context, state.errorMessage);
+                    print(state.errorMessage);
+                  }
+        },
+        builder: (context, state) {
+          return ModalProgressHUD(
+            inAsyncCall: isLoading,
+            child: Scaffold(
+              appBar: AppBar(
+                centerTitle: true,
+                title: const Text("Add a Recipe"),
+                foregroundColor: ThemeColorHelper.getPrimaryColor(context),
+              ),
+              body: const AddRecipeViewBody(),
+            ),
+          );
+        },
       ),
     );
   }

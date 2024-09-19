@@ -10,6 +10,7 @@ import 'package:happy_kitchen/features/add_recipe/presentation/views/add_recipe_
 import 'package:happy_kitchen/features/home/data/repos/home_repo_implementation%20.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/recipe_by_category/recipe_by_category_cubit.dart';
+import 'package:happy_kitchen/features/home/presentation/views/dashboard_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/details_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/home_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/all_recipes.dart';
@@ -25,8 +26,8 @@ void main() async {
   //   ),
   // );
   await Hive.initFlutter();
-  await Hive.openBox(kRecipeBox);
-  Hive.registerAdapter(AddRecipeModelAdapter());
+   Hive.registerAdapter(AddRecipeModelAdapter());
+  await Hive.openBox<AddRecipeModel>(kRecipeBox);
   Bloc.observer = SimpleBlocObserver();
   setupServiceLocator();
   runApp(const MyApp());
@@ -73,6 +74,7 @@ class MyApp extends StatelessWidget {
                 AddRecipeView.id: (context) => const AddRecipeView(),
                 RecipeByCategoryView.id: (context) =>
                     const RecipeByCategoryView(),
+                DashBoardView.id: (context) => const DashBoardView(),
               },
               home: const OnBoardView(),
             );

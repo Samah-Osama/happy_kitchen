@@ -20,7 +20,7 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
   double? time;
   // double? rating;
 
-  // File? pickedImage;
+  //  File? pickedImage;
 
   GlobalKey<FormState> formKey = GlobalKey();
   @override
@@ -112,7 +112,7 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                     if (formKey.currentState!.validate()) {
                       var recipe = AddRecipeModel(
                           title: title!,
-                          // image: pickedImage?.path ?? '',
+                          // image:pickedImage!.path ,
                           recipeTime: time.toString(),
                           ingredients: ingredients!,
                           steps: steps!);

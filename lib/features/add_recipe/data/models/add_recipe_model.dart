@@ -1,21 +1,20 @@
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 part 'add_recipe_model.g.dart';
 @HiveType(typeId: 0)
 class AddRecipeModel extends HiveObject {
   @HiveField(0)
   final String title;
-  // @HiveField(1)
- final Image? image;
-  @HiveField(2)
+//   @HiveField(1)
+//  final String image;
+  @HiveField(1)
   final String recipeTime;
-  @HiveField(3)
+  @HiveField(2)
   final String ingredients;
-  @HiveField(4)
+  @HiveField(3)
   final String steps;
   AddRecipeModel(
       {required this.title,
-      this.image,
+    // required this.image,
       required this.recipeTime,
       required this.ingredients,
       required this.steps});
