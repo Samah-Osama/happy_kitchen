@@ -8,20 +8,12 @@ part 'user_recipe_state.dart';
 
 class UserRecipeCubit extends Cubit<UserRecipeState> {
   UserRecipeCubit() : super(UserRecipeInitial());
-
- getUserRecipes() {
-    try {
-      var recipeBox = Hive.box<AddRecipeModel>(kRecipeBox);
-      List<AddRecipeModel> recipe = recipeBox.values.toList();
-      emit(
-        UserRecipeSuccess(recipe: recipe),
-      );
-    } on Exception catch (e) {
-      emit(
-        UserRecipeFailure(
-          errorMessage: e.toString(),
-        ),
-      );
-    }
+  List<AddRecipeModel>? recipe;
+  getUserRecipes() {
+    var recipeBox = Hive.box<AddRecipeModel>(kRecipeBox);
+   recipe = recipeBox.values.toList();
+    emit(
+      UserRecipeSuccess(recipe: recipe!),
+    );
   }
 }

@@ -14,7 +14,7 @@ class MyRecipesButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () {
-        // BlocProvider.of<UserRecipeCubit>(context).getUserRecipes();
+        BlocProvider.of<UserRecipeCubit>(context).getUserRecipes();
       },
       child: Container(
         decoration: BoxDecoration(

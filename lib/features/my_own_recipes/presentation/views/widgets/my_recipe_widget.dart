@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
+import 'package:happy_kitchen/features/my_own_recipes/data/models/add_recipe_model.dart';
 
 class MyRecipeWidget extends StatelessWidget {
   const MyRecipeWidget({
     super.key,
+    required this.recipeModel,
   });
-
+  final AddRecipeModel recipeModel;
   @override
   Widget build(BuildContext context) {
     String chiefIcon = '👩‍🍳';
@@ -21,7 +23,6 @@ class MyRecipeWidget extends StatelessWidget {
           Container(
             height: 200.h,
             width: 190.w,
-            // padding: EdgeInsets.only(bottom: 24.r),
             decoration: BoxDecoration(
                 color: ThemeColorHelper.getLightGreyAndDarkPink(context),
                 borderRadius: BorderRadius.circular(30.r),
@@ -37,13 +38,13 @@ class MyRecipeWidget extends StatelessWidget {
               children: [
                 Text(
                     textAlign: TextAlign.center,
-                    'Recipe title $chiefIcon',
+                    '${recipeModel.title} $chiefIcon',
                     style: Styles.textStyle18
                         .copyWith(fontWeight: FontWeight.bold)),
                 SizedBox(height: 8.h),
                 Text(
                     textAlign: TextAlign.center,
-                    '40 Minuets',
+                    "${recipeModel.recipeTime} Minutes",
                     style: Styles.textStyle16
                         .copyWith(fontWeight: FontWeight.normal)),
                 SizedBox(height: 20.h),

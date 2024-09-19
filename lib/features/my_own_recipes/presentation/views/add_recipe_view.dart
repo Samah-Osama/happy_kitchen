@@ -22,16 +22,17 @@ class _AddRecipeViewState extends State<AddRecipeView> {
       create: (context) => AddRecipeCubit(),
       child: BlocConsumer<AddRecipeCubit, AddRecipeState>(
         listener: (context, state) {
-           if (state is AddRecipeLoading) {
-                    isLoading = true;
-                  } else if (state is AddRecipeSuccess) {
-                    isLoading = false;
-                    showSnackBar(context, 'Recipe added successfully');
-                  } else if (state is AddRecipeFailure) {
-                    isLoading = false;
-                    showSnackBar(context, state.errorMessage);
-                    print(state.errorMessage);
-                  }
+          if (state is AddRecipeLoading) {
+            isLoading = true;
+          } else if (state is AddRecipeSuccess) {
+            isLoading = false;
+            showSnackBar(context, 'Recipe added successfully');
+            Navigator.pop(context);
+          } else if (state is AddRecipeFailure) {
+            isLoading = false;
+            showSnackBar(context, state.errorMessage);
+            print(state.errorMessage);
+          }
         },
         builder: (context, state) {
           return ModalProgressHUD(
