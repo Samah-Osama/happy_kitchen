@@ -6,6 +6,7 @@ import 'package:happy_kitchen/core/utils/service_locator.dart';
 import 'package:happy_kitchen/core/utils/services/theme_service/cubit/theme_cubit.dart';
 import 'package:happy_kitchen/core/utils/simple_bloc_observer.dart';
 import 'package:happy_kitchen/features/my_own_recipes/data/models/add_recipe_model.dart';
+import 'package:happy_kitchen/features/my_own_recipes/presentation/view_model/user_recipe_cubit/user_recipe_cubit.dart';
 import 'package:happy_kitchen/features/my_own_recipes/presentation/views/add_recipe_view.dart';
 import 'package:happy_kitchen/features/home/data/repos/home_repo_implementation%20.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
@@ -15,6 +16,7 @@ import 'package:happy_kitchen/features/home/presentation/views/details_view.dart
 import 'package:happy_kitchen/features/home/presentation/views/home_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/all_recipes.dart';
 import 'package:happy_kitchen/features/home/presentation/views/recipe_by_category_view.dart';
+import 'package:happy_kitchen/features/my_own_recipes/presentation/views/user_recipes_details_view.dart';
 import 'package:happy_kitchen/features/on_board/presentation/views/on_board_view.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -26,7 +28,7 @@ void main() async {
   //   ),
   // );
   await Hive.initFlutter();
-   Hive.registerAdapter(AddRecipeModelAdapter());
+  Hive.registerAdapter(AddRecipeModelAdapter());
   await Hive.openBox<AddRecipeModel>(kRecipeBox);
   Bloc.observer = SimpleBlocObserver();
   setupServiceLocator();
@@ -54,6 +56,8 @@ class MyApp extends StatelessWidget {
               getIt.get<HomeRepoImplementation>(),
             ),
           ),
+          BlocProvider(
+      create: (context) => UserRecipeCubit(),)
         ],
         child: BlocBuilder<ThemeCubit, ThemeData>(
           builder: (context, state) {
@@ -75,6 +79,8 @@ class MyApp extends StatelessWidget {
                 RecipeByCategoryView.id: (context) =>
                     const RecipeByCategoryView(),
                 DashBoardView.id: (context) => const DashBoardView(),
+                UserRecipesDetailsView.id: (context) =>
+                    const UserRecipesDetailsView(),
               },
               home: const OnBoardView(),
             );

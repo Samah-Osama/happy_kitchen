@@ -20,7 +20,7 @@ class StepsAndIngredientsInformation extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         color: ThemeColorHelper.getDarkGreyAndPink(context),
-        borderRadius: BorderRadius.circular(24.0),
+        borderRadius: BorderRadius.circular(24.r),
       ),
       child: GestureDetector(
         onTap: () {

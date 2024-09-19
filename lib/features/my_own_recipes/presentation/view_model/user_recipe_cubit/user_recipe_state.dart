@@ -9,9 +9,9 @@ sealed class UserRecipeState extends Equatable {
 
 final class UserRecipeInitial extends UserRecipeState {}
 final class UserRecipeSuccess extends UserRecipeState {
-  final List<AddRecipeModel> recipe;
+  // final List<AddRecipeModel> recipe;
 
-  const UserRecipeSuccess({required this.recipe});
+  // const UserRecipeSuccess({required this.recipe});
 }
 
 final class UserRecipeFailure extends UserRecipeState {

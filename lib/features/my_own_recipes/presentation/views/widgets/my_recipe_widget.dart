@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
+import 'package:happy_kitchen/features/home/presentation/views/details_view.dart';
 import 'package:happy_kitchen/features/my_own_recipes/data/models/add_recipe_model.dart';
+import 'package:happy_kitchen/features/my_own_recipes/presentation/views/user_recipes_details_view.dart';
 
 class MyRecipeWidget extends StatelessWidget {
   const MyRecipeWidget({
@@ -15,7 +17,8 @@ class MyRecipeWidget extends StatelessWidget {
     String chiefIcon = '👩‍🍳';
     return GestureDetector(
       onTap: () {
-        // Navigator.pushNamed(context, DetailsView.id, arguments: recipeModel);
+        Navigator.pushNamed(context, UserRecipesDetailsView.id,
+            arguments: recipeModel);
       },
       child: Stack(
         clipBehavior: Clip.none,

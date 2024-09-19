@@ -11,9 +11,9 @@ class UserRecipeCubit extends Cubit<UserRecipeState> {
   List<AddRecipeModel>? recipe;
   getUserRecipes() {
     var recipeBox = Hive.box<AddRecipeModel>(kRecipeBox);
-   recipe = recipeBox.values.toList();
+    recipe = recipeBox.values.toList();
     emit(
-      UserRecipeSuccess(recipe: recipe!),
+      UserRecipeSuccess(),
     );
   }
 }

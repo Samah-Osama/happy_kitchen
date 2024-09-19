@@ -7,42 +7,20 @@ import 'package:happy_kitchen/features/my_own_recipes/presentation/view_model/us
 import 'package:happy_kitchen/features/my_own_recipes/presentation/views/add_recipe_view.dart';
 import 'package:happy_kitchen/features/my_own_recipes/presentation/views/my_own_recipes_view.dart';
 import 'package:happy_kitchen/features/favorite/presentation/views/widgets/custom_favorite_view_app_bar.dart';
+import 'package:happy_kitchen/features/my_own_recipes/presentation/views/widgets/custom_add_recipe_icon.dart';
 
 class FavoritesView extends StatelessWidget {
   const FavoritesView({super.key});
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => UserRecipeCubit(),
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100.h),
-          child: const CustomFavoriteViewAppBar(),
-        ),
-        floatingActionButton: const CustomFloatingActionButton(),
-        body: const MyOwnRecipesView(),
-        // body: const FavoritesViewBody(),
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100.h),
+        child: const CustomFavoriteViewAppBar(),
       ),
-    );
-  }
-}
-
-class CustomFloatingActionButton extends StatelessWidget {
-  const CustomFloatingActionButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {
-        Navigator.pushNamed(context, AddRecipeView.id);
-      },
-      backgroundColor: ThemeColorHelper.getPrimaryColor(context),
-      child: const Icon(
-        Icons.add,
-        color: kWhiteColor,
-      ),
+      floatingActionButton: const CustomAddRecipeIcon(),
+      body: const MyOwnRecipesView(),
+      // body: const FavoritesViewBody(),
     );
   }
 }
