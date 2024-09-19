@@ -4,37 +4,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 import 'package:happy_kitchen/features/my_own_recipes/presentation/view_model/user_recipe_cubit/user_recipe_cubit.dart';
-import 'package:happy_kitchen/features/my_own_recipes/presentation/views/widgets/my_recipes_button.dart';
 
-class CustomFavoriteViewAppBar extends StatelessWidget {
-  const CustomFavoriteViewAppBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      minimum: EdgeInsets.only(left: 15.r, top: 90.r),
-      child: const Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          FavoriteRecipesButton(),
-          MyRecipesButton(),
-        ],
-      ),
-    );
-  }
-}
-
-class FavoriteRecipesButton extends StatelessWidget {
-  const FavoriteRecipesButton({
+class MyRecipesButton extends StatelessWidget {
+  const MyRecipesButton({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: () {
+        // BlocProvider.of<UserRecipeCubit>(context).getUserRecipes();
+      },
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
@@ -48,7 +29,7 @@ class FavoriteRecipesButton extends StatelessWidget {
         child: Align(
           alignment: Alignment.center,
           child: Text(
-            'Favorite',
+            'My Recipes',
             style: Styles.textStyle24.copyWith(
                 fontWeight: FontWeight.bold,
                 color: ThemeColorHelper.getPrimaryColor(context)),
@@ -58,5 +39,3 @@ class FavoriteRecipesButton extends StatelessWidget {
     );
   }
 }
-
-
