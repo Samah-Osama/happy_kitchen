@@ -75,8 +75,8 @@ class MyRecipeWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-              left: 45.r,
-              bottom: 150.r,
+              left: 30.r,
+              bottom: 140.r,
               child: Image.asset('assets/images/dish.png', height: 93.h))
         ],
       ),

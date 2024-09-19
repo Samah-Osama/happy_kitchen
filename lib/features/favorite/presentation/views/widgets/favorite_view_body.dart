@@ -9,7 +9,7 @@ class FavoritesViewBody extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(
-          child: SizedBox(height: 70.r),
+          child: SizedBox(height: 70.h),
         ),
         const FavoritesRecipesList(),
       ],
