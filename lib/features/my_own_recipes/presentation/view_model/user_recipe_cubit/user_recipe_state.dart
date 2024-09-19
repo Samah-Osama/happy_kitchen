@@ -8,9 +8,6 @@ sealed class UserRecipeState extends Equatable {
 }
 
 final class UserRecipeInitial extends UserRecipeState {}
-
-final class UserRecipeLoading extends UserRecipeState {}
-
 final class UserRecipeSuccess extends UserRecipeState {
   final List<AddRecipeModel> recipe;
 
