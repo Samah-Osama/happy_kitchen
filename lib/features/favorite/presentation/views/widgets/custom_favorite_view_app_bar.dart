@@ -17,7 +17,7 @@ class CustomFavoriteViewAppBar extends StatelessWidget {
         children: [
           FavoriteRecipesButton(),
           MyRecipesButton(),
-          // AddRecipeIcon(),
+          
         ],
       ),
     );
