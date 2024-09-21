@@ -12,7 +12,7 @@ class FavoritesRecipesList extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(childCount: 3, (context, index) {
         return const Padding(
           padding: EdgeInsets.symmetric(horizontal: 10),
-          // child: Text('hhhh'),
+          child: Text('hhhh'),
           // child: RecipeWidget(
           //   color: ThemeColorHelper.getLightGreyAndDarkPink(context),
           // ),

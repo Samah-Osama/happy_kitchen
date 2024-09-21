@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/constant.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
-import 'package:happy_kitchen/features/my_own_recipes/presentation/views/add_recipe_view.dart';
+import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/views/add_recipe_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/dashboard_view.dart';
-import 'package:happy_kitchen/features/favorite/presentation/views/favorite_view.dart';
+import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/views/favorite_and_userrecipe_view.dart';
 import 'package:happy_kitchen/features/kitchens/presentation/view/all_kitchen_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -19,7 +19,7 @@ List<Widget> views = [
   // DashboardScreen(),
   const DashBoardView(),
   const AllKitchensView(),
-  const FavoritesView(),
+  const FavoritesAndUserRecipesView(),
   const AddRecipeView()
   // const FavoritsScreen(),
 //  AllRecipesScreen()
