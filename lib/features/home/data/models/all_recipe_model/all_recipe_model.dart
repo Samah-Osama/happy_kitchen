@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class AllRecipeModel extends Equatable {
   final int id;
   final String title;
-  final String? description;
+  final String description;
   final String image;
   final String preparationTime;
   final String category;
@@ -16,7 +16,7 @@ class AllRecipeModel extends Equatable {
   const AllRecipeModel({
     required this.id,
     required this.title,
-    this.description,
+  required  this.description,
     required this.image,
     required this.preparationTime,
     required this.category,

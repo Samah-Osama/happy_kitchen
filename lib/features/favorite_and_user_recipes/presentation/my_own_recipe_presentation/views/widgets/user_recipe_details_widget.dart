@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/constant.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
-import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/views/widgets/steps_and_ingredient_user_recipe.dart';
+import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/views/widgets/user_recipesteps_and_ingredient.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/dash_mark.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/data/my_own_recipe_data/models/add_recipe_model.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/view_model/user_recipe_cubit/user_recipe_cubit.dart';
@@ -44,7 +44,7 @@ class UserRecipeDetailsWidget extends StatelessWidget {
           SizedBox(height: 30.h),
           Text('${recipeModel.recipeTime} Minutes', style: Styles.textStyle16),
           SizedBox(height: 28.h),
-          StepsAndIngredientUserRecipe(recipeModel: recipeModel),
+          UserRecipeStepsAndIngredient(recipeModel: recipeModel),
           SizedBox(height: 28.h),
         ],
       ),

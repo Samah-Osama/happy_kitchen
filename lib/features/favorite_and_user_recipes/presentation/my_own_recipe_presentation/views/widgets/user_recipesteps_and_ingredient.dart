@@ -8,20 +8,20 @@ import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my
 import 'package:happy_kitchen/features/home/presentation/views/widgets/steps_and_Ingredients_Information.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/steps_and_ingredient_button.dart';
 
-class StepsAndIngredientUserRecipe extends StatefulWidget {
-  const StepsAndIngredientUserRecipe({
+class UserRecipeStepsAndIngredient extends StatefulWidget {
+  const UserRecipeStepsAndIngredient({
     super.key,
     required this.recipeModel,
   });
   final AddRecipeModel recipeModel;
 
   @override
-  State<StepsAndIngredientUserRecipe> createState() =>
+  State<UserRecipeStepsAndIngredient> createState() =>
       _StepsAndIngredientWidgetState();
 }
 
 class _StepsAndIngredientWidgetState
-    extends State<StepsAndIngredientUserRecipe> {
+    extends State<UserRecipeStepsAndIngredient> {
   final controller = PageController(initialPage: 0);
   @override
   void dispose() {
@@ -84,11 +84,9 @@ class _StepsAndIngredientWidgetState
             scrollDirection: Axis.horizontal,
             children: [
               UserStepsAndIngredientsInformation(
-                title: 'Steps',
-                  content: widget.recipeModel.steps),
+                  title: 'Steps', content: widget.recipeModel.steps),
               UserStepsAndIngredientsInformation(
-                title: 'Ingredients',
-                  content: widget.recipeModel.ingredients)
+                  title: 'Ingredients', content: widget.recipeModel.ingredients)
             ],
           ),
         ),

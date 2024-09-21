@@ -10,8 +10,7 @@ class UserStepsAndIngredientsInformation extends StatelessWidget {
     required this.title,
     required this.content,
   });
-  final String title;
-  final String content;
+  final String title, content;
   @override
   Widget build(BuildContext context) {
     return Container(

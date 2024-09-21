@@ -43,7 +43,7 @@ class RecipeDetailsWidget extends StatelessWidget {
               SizedBox(height: 30.h),
               ShortDesc(recipeModel: recipeModel),
               SizedBox(height: 28.h),
-              const StepsAndIngredientWidget(),
+              StepsAndIngredientWidget(recipeModel: recipeModel),
               SizedBox(height: 28.h),
             ],
           ),

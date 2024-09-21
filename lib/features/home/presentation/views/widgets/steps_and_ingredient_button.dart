@@ -59,29 +59,3 @@ class _StepsAndIngredientButtonState extends State<StepsAndIngredientButton> {
   }
 }
 
-// class CustomStepsAndIngredientButton extends StatelessWidget {
-//   const CustomStepsAndIngredientButton({
-//     super.key,
-//     required this.text,
-//     this.onTap,
-//   });
-//   final String text;
-//   final void Function()? onTap;
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       onTap: onTap,
-//       child: Container(
-//         margin: EdgeInsets.only(left: 10.r),
-//         height: 45.h,
-//         width: 140.w,
-//         alignment: Alignment.center,
-//         decoration: BoxDecoration(
-//           color: ThemeColorHelper.getLightGreyAndPink(context),
-//           borderRadius: BorderRadius.circular(28.0),
-//         ),
-//         child: Text(text),
-//       ),
-//     );
-//   }
-// }

@@ -3,15 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/functions/toggle_between_pages.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
+import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/steps_and_Ingredients_Information.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/steps_and_ingredient_button.dart';
 
 class StepsAndIngredientWidget extends StatefulWidget {
   const StepsAndIngredientWidget({
     super.key,
-    
+    required this.recipeModel,
   });
-  
+  final AllRecipeModel recipeModel;
 
   @override
   State<StepsAndIngredientWidget> createState() =>
@@ -79,9 +80,11 @@ class _StepsAndIngredientWidgetState extends State<StepsAndIngredientWidget> {
           child: PageView(
             controller: controller,
             scrollDirection: Axis.horizontal,
-            children: const [
-              StepsAndIngredientsInformation(text: 'haha'),
-              StepsAndIngredientsInformation(text: 'lalalalallamslksl')
+            children: [
+              StepsAndIngredientsInformation(
+                  title: 'Steps', content: widget.recipeModel.description),
+              StepsAndIngredientsInformation(
+                  title: 'Ingredients', content: 'kdmcldsmc')
             ],
           ),
         ),
