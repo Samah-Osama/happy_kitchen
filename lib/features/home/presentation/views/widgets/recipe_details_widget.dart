@@ -20,13 +20,13 @@ class RecipeDetailsWidget extends StatelessWidget {
       children: [
         Container(
           width: MediaQuery.of(context).size.width,
-          margin: const EdgeInsets.only(top: 28.0),
-          padding: const EdgeInsets.symmetric(vertical: 28.0),
+          margin: EdgeInsets.only(top: 28.r),
+          padding: EdgeInsets.symmetric(vertical: 28.r),
           decoration: BoxDecoration(
             color: ThemeColorHelper.getLightGreyAndDarkPink(context),
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(50.0),
-              topRight: Radius.circular(50.0),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(50.r),
+              topRight: Radius.circular(50.r),
             ),
           ),
           child: Column(

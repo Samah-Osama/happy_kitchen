@@ -3,7 +3,7 @@ import 'package:happy_kitchen/constant.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 
-Future<dynamic> showDialogRecipeInformation(BuildContext context) {
+Future<dynamic> showDialogRecipeInformation({required BuildContext context, required String title , required String content}) {
   return showDialog(
       context: context,
       builder: (context) {
@@ -11,10 +11,10 @@ Future<dynamic> showDialogRecipeInformation(BuildContext context) {
           scrollable: true,
           backgroundColor: ThemeColorHelper.getDarkGreyAndPink(context),
           title: Text(
-            'Details',
+            title,
             style: Styles.textStyle28.copyWith(color: Colors.white),
           ),
-          content: Text(details,
+          content: Text(content,
               style: Styles.textStyle18.copyWith(color: Colors.white)),
         );
       });

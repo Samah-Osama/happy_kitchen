@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/cubit/steps_and_ingredients_cubit.dart';
+import 'package:happy_kitchen/core/functions/toggle_between_pages.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 
 class StepsAndIngredientButton extends StatefulWidget {
   const StepsAndIngredientButton({
     super.key,
+    required this.controller,
   });
-
+  final PageController controller;
   @override
   State<StepsAndIngredientButton> createState() =>
       _StepsAndIngredientButtonState();
@@ -26,8 +28,9 @@ class _StepsAndIngredientButtonState extends State<StepsAndIngredientButton> {
         (index) {
           return GestureDetector(
             onTap: () {
-              BlocProvider.of<StepsAndIngredientsCubit>(context)
-                  .presentData(text: tabs[index]);
+              selectedItem = index;
+              toggleBetweenPages(index, widget.controller);
+              setState(() {});
             },
             child: Container(
               margin: EdgeInsets.only(left: 10.r),
@@ -40,11 +43,14 @@ class _StepsAndIngredientButtonState extends State<StepsAndIngredientButton> {
                     : Colors.transparent,
                 borderRadius: BorderRadius.circular(28.0),
               ),
-              child: Text(tabs[index],
-                  style: Styles.textStyle18.copyWith(
-                      color: selectedItem == index
-                          ? ThemeColorHelper.getYellowAndBlack(context)
-                          : ThemeColorHelper.getGreyAndWhite(context))),
+              child: Text(
+                tabs[index],
+                style: Styles.textStyle18.copyWith(
+                  color: selectedItem == index
+                      ? ThemeColorHelper.getYellowAndBlack(context)
+                      : ThemeColorHelper.getGreyAndWhite(context),
+                ),
+              ),
             ),
           );
         },
