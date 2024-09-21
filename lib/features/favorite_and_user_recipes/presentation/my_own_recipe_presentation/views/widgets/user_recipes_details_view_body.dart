@@ -10,6 +10,7 @@ class UserRecipeViewBody extends StatelessWidget {
   const UserRecipeViewBody({super.key, required this.recipeModel});
   @override
   final AddRecipeModel recipeModel;
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => StepsAndIngredientsCubit(),

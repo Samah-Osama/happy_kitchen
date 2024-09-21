@@ -20,40 +20,35 @@ class _StepsAndIngredientButtonState extends State<StepsAndIngredientButton> {
   int selectedItem = 0;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          children: List.generate(
-            tabs.length,
-            (index) {
-              return GestureDetector(
-                onTap: () {
-                  BlocProvider.of<StepsAndIngredientsCubit>(context)
-                      .presentData(text: tabs[index]);
-                  
-                },
-                child: Container(
-                  margin: EdgeInsets.only(left: 10.r),
-                  height: 45.h,
-                  width: 140.w,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: selectedItem == index
-                        ? ThemeColorHelper.getLightGreyAndPink(context)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(28.0),
-                  ),
-                  child: Text(tabs[index],
-                      style: Styles.textStyle18.copyWith(
-                          color: selectedItem == index
-                              ? ThemeColorHelper.getYellowAndBlack(context)
-                              : ThemeColorHelper.getGreyAndWhite(context))),
-                ),
-              );
+    return Row(
+      children: List.generate(
+        tabs.length,
+        (index) {
+          return GestureDetector(
+            onTap: () {
+              BlocProvider.of<StepsAndIngredientsCubit>(context)
+                  .presentData(text: tabs[index]);
             },
-          ),
-        ),
-      ],
+            child: Container(
+              margin: EdgeInsets.only(left: 10.r),
+              height: 45.h,
+              width: 140.w,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: selectedItem == index
+                    ? ThemeColorHelper.getLightGreyAndPink(context)
+                    : Colors.transparent,
+                borderRadius: BorderRadius.circular(28.0),
+              ),
+              child: Text(tabs[index],
+                  style: Styles.textStyle18.copyWith(
+                      color: selectedItem == index
+                          ? ThemeColorHelper.getYellowAndBlack(context)
+                          : ThemeColorHelper.getGreyAndWhite(context))),
+            ),
+          );
+        },
+      ),
     );
   }
 }

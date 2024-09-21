@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:happy_kitchen/constant.dart';
-import 'package:happy_kitchen/core/cubit/steps_and_ingredients_cubit.dart';
+import 'package:happy_kitchen/core/functions/toggle_between_pages.dart';
+import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/steps_and_Ingredients_Information.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/steps_and_ingredient_button.dart';
 
-class StepsAndIngredientWidget extends StatelessWidget {
+class StepsAndIngredientWidget extends StatefulWidget {
   const StepsAndIngredientWidget({
     super.key,
   });
+
+  @override
+  State<StepsAndIngredientWidget> createState() =>
+      _StepsAndIngredientWidgetState();
+}
+
+class _StepsAndIngredientWidgetState extends State<StepsAndIngredientWidget> {
+  List<String> tabs = ["Steps", "Ingredients"];
+  final controller = PageController(initialPage: 0);
+  int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,17 +31,52 @@ class StepsAndIngredientWidget extends StatelessWidget {
             color: ThemeColorHelper.getDarkGreyAndPink(context),
             borderRadius: BorderRadius.circular(36.r),
           ),
-          child: const StepsAndIngredientButton(),
+          child: Row(
+            children: List.generate(
+              tabs.length,
+              (index) {
+                return GestureDetector(
+                  onTap: () {
+                    currentIndex = index;
+                    toggleBetweenPages(index, controller);
+                    setState(() {});
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(left: 10.r),
+                    height: 45.h,
+                    width: 140.w,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: currentIndex == index
+                          ? ThemeColorHelper.getLightGreyAndPink(context)
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(28.0),
+                    ),
+                    child: Text(
+                      tabs[index],
+                      style: Styles.textStyle18.copyWith(
+                        color: currentIndex == index
+                            ? ThemeColorHelper.getYellowAndBlack(context)
+                            : ThemeColorHelper.getGreyAndWhite(context),
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
         ),
         const SizedBox(height: 30),
-        BlocBuilder<StepsAndIngredientsCubit, StepsAndIngredientsState>(
-          builder: (context, state) {
-            if (State is StepsAndIngredientButton) {
-              return const StepsAndIngredientsInformation(text: 'kpwdl');
-            } else {
-              return const StepsAndIngredientsInformation(text: ',owkdoddddd');
-            }
-          },
+        SizedBox(
+          height: 100.h,
+          child: PageView(
+            controller: controller,
+            scrollDirection: Axis.horizontal,
+            children: const [
+              StepsAndIngredientsInformation(text: 'haha'),
+              StepsAndIngredientsInformation(text: 'lalalalallamslksl')
+            ],
+          ),
         ),
         const SizedBox(height: 30),
       ],
