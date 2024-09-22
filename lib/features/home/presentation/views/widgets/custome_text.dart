@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
-import 'package:happy_kitchen/features/home/presentation/views/widgets/all_recipes.dart';
+import 'package:happy_kitchen/features/home/presentation/views/widgets/all_recipes_view.dart';
 
 class CustomText extends StatelessWidget {
   const CustomText({
@@ -19,7 +19,7 @@ class CustomText extends StatelessWidget {
           const Text("Meal Category", style: Styles.textStyle22),
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, AllRecipes.id);
+              Navigator.pushNamed(context, AllRecipesView.id);
             },
             child: Text("See All",
                 style:

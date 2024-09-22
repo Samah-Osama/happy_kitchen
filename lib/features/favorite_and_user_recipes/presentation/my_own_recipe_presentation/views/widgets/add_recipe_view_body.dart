@@ -1,3 +1,4 @@
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,7 +7,10 @@ import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/data/my_own_recipe_data/models/add_recipe_model.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/view_model/add_recipe_cubit/add_recipe_cubit.dart';
+import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/view_model/picked_image/picked_image_cubit.dart';
+import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/views/widgets/user_recipe_Image.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/views/widgets/custom_text_form_field.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddRecipeViewBody extends StatefulWidget {
   const AddRecipeViewBody({super.key});
@@ -19,8 +23,17 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
   String? title, ingredients, steps;
   double? time;
   // double? rating;
+  // File? pickedImage;
 
-  //  File? pickedImage;
+//   final imagePicker = ImagePicker();
+//  Future pickImage() async {
+//     var image = await imagePicker.pickImage(source: ImageSource.gallery);
+//     setState(() {
+//       if (image != null) {
+//         pickedImage = File(image.path);
+//       } else {}
+//     });
+//   }
 
   GlobalKey<FormState> formKey = GlobalKey();
   @override
@@ -40,16 +53,8 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                 },
               ),
               SizedBox(height: 15.h),
-              // const AddRecipeImage(),
+           const   UserRecipeImage(),
               SizedBox(height: 15.h),
-              // CustomRatingTextFormField(
-              //   keyboardType: TextInputType.number,
-              //   labelText: 'Rating (1-5)',
-              //   validatorMessage: 'Please enter a valid rating',
-              //   onChanged: (value) {
-              //     rating = double.tryParse(value);
-              //   },
-              // ),
               CustomRecipeTimeTextFormField(
                 keyboardType: TextInputType.number,
                 labelText: "Time (in minutes)",
@@ -58,30 +63,6 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                   time = double.tryParse(value);
                 },
               ),
-              // DropdownButtonFormField(
-              //   hint: Text(
-              //     'Choose Level',
-              //     style: TextStyle(
-              //         color: ThemeColorHelper.getWhiteAndBlack(context)),
-              //   ),
-              //   items: Levels.values.map((level) {
-              //     return DropdownMenuItem(
-              //       // ignore: sort_child_properties_last
-              //       child: Text(level.toString().split('.').last),
-              //       value: level,
-              //     );
-              //   }).toList(),
-              //   onChanged: (value) {
-              //     recipeLevel = value;
-              //   },
-              //   value: recipeLevel,
-              //   validator: (value) {
-              //     if (value == null) {
-              //       return 'Please select a level';
-              //     }
-              //     return null;
-              //   },
-              // ),
               SizedBox(height: 15.h),
               CustomTextFormField(
                 maxLines: 5,
@@ -112,8 +93,10 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                     if (formKey.currentState!.validate()) {
                       var recipe = AddRecipeModel(
                           title: title!,
-                          // image:pickedImage!.path ,
-                          recipeTime: time.toString(),
+                          image: BlocProvider.of<PickedImageCubit>(context)
+                              .pickedImage
+                              .toString(),
+                          recipeTime: time!.round().toString(),
                           ingredients: ingredients!,
                           steps: steps!);
                       BlocProvider.of<AddRecipeCubit>(context)

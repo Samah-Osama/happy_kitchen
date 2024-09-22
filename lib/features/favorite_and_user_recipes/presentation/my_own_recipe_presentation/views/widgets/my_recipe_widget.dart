@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
+import 'package:happy_kitchen/core/widgets/custom_error_widget.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/data/my_own_recipe_data/models/add_recipe_model.dart';
+import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/view_model/picked_image/picked_image_cubit.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/views/user_recipes_details_view.dart';
 
 class MyRecipeWidget extends StatelessWidget {
@@ -80,7 +83,17 @@ class MyRecipeWidget extends StatelessWidget {
           Positioned(
               left: 30.r,
               bottom: 140.r,
-              child: Image.asset('assets/images/dish.png', height: 93.h))
+              child: BlocBuilder<PickedImageCubit, PickedImageState>(
+                builder: (context, state) {
+                  var image = BlocProvider.of<PickedImageCubit>(context);
+                  if (state is PickedImageSuccess) {
+                    return Image.file(image.pickedImage!);
+                  } else if (state is PickedImageFailure) {
+                    return CustomErrorWidget(errorMessage: state.errorMessage);
+                  }
+                  return Image.asset('assets/images/dish.png', height: 93.h);
+                },
+              ))
         ],
       ),
     );

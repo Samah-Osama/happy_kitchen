@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:happy_kitchen/core/functions/toggle_between_pages.dart';
-import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/steps_and_Ingredients_Information.dart';
@@ -83,7 +81,7 @@ class _StepsAndIngredientWidgetState extends State<StepsAndIngredientWidget> {
             children: [
               StepsAndIngredientsInformation(
                   title: 'Steps', content: widget.recipeModel.description),
-              StepsAndIngredientsInformation(
+              const StepsAndIngredientsInformation(
                   title: 'Ingredients', content: 'kdmcldsmc')
             ],
           ),
