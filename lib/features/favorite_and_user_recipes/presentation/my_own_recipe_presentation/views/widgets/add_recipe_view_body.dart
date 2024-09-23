@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +8,6 @@ import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/view_model/picked_image/picked_image_cubit.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/views/widgets/user_recipe_Image.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/views/widgets/custom_text_form_field.dart';
-import 'package:image_picker/image_picker.dart';
 
 class AddRecipeViewBody extends StatefulWidget {
   const AddRecipeViewBody({super.key});
@@ -53,7 +50,7 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                 },
               ),
               SizedBox(height: 15.h),
-           const   UserRecipeImage(),
+              const UserRecipeImage(),
               SizedBox(height: 15.h),
               CustomRecipeTimeTextFormField(
                 keyboardType: TextInputType.number,
@@ -94,8 +91,7 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                       var recipe = AddRecipeModel(
                           title: title!,
                           image: BlocProvider.of<PickedImageCubit>(context)
-                              .pickedImage
-                              .toString(),
+                              .pickedImage.toString(),
                           recipeTime: time!.round().toString(),
                           ingredients: ingredients!,
                           steps: steps!);

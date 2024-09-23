@@ -76,6 +76,7 @@
 //     return cameraImage;
 //   }
 // }
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -87,14 +88,14 @@ class UserRecipeImage extends StatelessWidget {
   Widget build(BuildContext context) {
     var pickedImage = BlocProvider.of<PickedImageCubit>(context).pickedImage;
     return GestureDetector(
-      onTap: BlocProvider.of<PickedImageCubit>(context).getImage,
+      onTap: () => BlocProvider.of<PickedImageCubit>(context).getImage(),
       child: Container(
         height: 200.h,
         width: double.infinity,
         color: Colors.grey.shade400,
         child: pickedImage == null
             ? Icon(Icons.add_a_photo, size: 50, color: Colors.grey[800])
-            : Image.file(pickedImage),
+            : Image.file(pickedImage,fit: BoxFit.cover, ),
       ),
     );
   }

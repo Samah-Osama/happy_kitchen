@@ -1,5 +1,7 @@
+
 import 'package:hive/hive.dart';
 part 'add_recipe_model.g.dart';
+
 @HiveType(typeId: 0)
 class AddRecipeModel extends HiveObject {
   @HiveField(0)
@@ -14,7 +16,7 @@ class AddRecipeModel extends HiveObject {
   final String steps;
   AddRecipeModel(
       {required this.title,
-     required this.image,
+      required this.image,
       required this.recipeTime,
       required this.ingredients,
       required this.steps});

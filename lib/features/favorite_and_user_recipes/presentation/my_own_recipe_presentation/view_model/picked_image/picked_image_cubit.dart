@@ -11,12 +11,14 @@ class PickedImageCubit extends Cubit<PickedImageState> {
 
   final imagePicker = ImagePicker();
   File? pickedImage;
+  
   Future getImage() async {
     try {
       var image = await imagePicker.pickImage(source: ImageSource.gallery);
       if (image != null) {
-        pickedImage = File(image.path);
+        pickedImage =File(image.path);
       }
+      
       emit(PickedImageSuccess());
     } catch (e) {
       emit(

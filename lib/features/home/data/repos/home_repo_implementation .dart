@@ -9,15 +9,17 @@ class HomeRepoImplementation implements HomeRepo {
   final ApiService apiService;
   HomeRepoImplementation({required this.apiService});
   @override
-  Future<Either<Failure, List<AllRecipeModel>>> fetchAllRecipes() async {
+  Future<Either<Failure, List<AllRecipeModel>>> fetchAllRecipes(
+      {int pageNumber = 0}) async {
     try {
       var data = await apiService.get(
-          endpoint: 'recipes/AllRecipesByLanguage?language=EN&page=0&size=200');
+          endpoint:
+              'recipes/AllRecipesByLanguageAndKitchenType?language=EN&page=$pageNumber&size=10');
       List<AllRecipeModel> allRecipeList = [];
       for (var recipe in data) {
         allRecipeList.add(AllRecipeModel.fromJson(recipe));
       }
-      // print(allRecipeList);
+
       return right(allRecipeList);
     } catch (e) {
       if (e is DioException) {

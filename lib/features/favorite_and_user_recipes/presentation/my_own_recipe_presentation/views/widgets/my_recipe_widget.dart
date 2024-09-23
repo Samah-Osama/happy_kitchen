@@ -1,3 +1,7 @@
+import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -84,16 +88,19 @@ class MyRecipeWidget extends StatelessWidget {
               left: 30.r,
               bottom: 140.r,
               child: BlocBuilder<PickedImageCubit, PickedImageState>(
-                builder: (context, state) {
-                  var image = BlocProvider.of<PickedImageCubit>(context);
-                  if (state is PickedImageSuccess) {
-                    return Image.file(image.pickedImage!);
-                  } else if (state is PickedImageFailure) {
-                    return CustomErrorWidget(errorMessage: state.errorMessage);
-                  }
-                  return Image.asset('assets/images/dish.png', height: 93.h);
-                },
-              ))
+                  builder: (context, state) {
+                // var image = BlocProvider.of<PickedImageCubit>(context);
+                if (state is PickedImageSuccess) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    child: Image.file(File(recipeModel.image))
+                  );
+                } else {
+                  return const Text('ooops');
+                }
+              }))
         ],
       ),
     );
