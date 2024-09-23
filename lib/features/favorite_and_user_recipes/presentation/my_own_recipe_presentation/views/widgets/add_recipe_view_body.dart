@@ -91,7 +91,8 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                       var recipe = AddRecipeModel(
                           title: title!,
                           image: BlocProvider.of<PickedImageCubit>(context)
-                              .pickedImage.toString(),
+                              .pickedImage
+                              .toString(),
                           recipeTime: time!.round().toString(),
                           ingredients: ingredients!,
                           steps: steps!);

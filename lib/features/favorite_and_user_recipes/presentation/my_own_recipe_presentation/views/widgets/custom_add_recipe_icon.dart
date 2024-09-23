@@ -15,7 +15,7 @@ class CustomAddRecipeIcon extends StatelessWidget {
         Navigator.pushNamed(context, AddRecipeView.id);
       },
       backgroundColor: ThemeColorHelper.getPrimaryColor(context),
-      child: const  Icon(
+      child: const Icon(
         Icons.add,
         color: kWhiteColor,
       ),

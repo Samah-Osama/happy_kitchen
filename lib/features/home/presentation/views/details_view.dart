@@ -9,7 +9,7 @@ class DetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     var recipeModel =
         ModalRoute.of(context)!.settings.arguments as AllRecipeModel;
-   
+
     return Scaffold(
       body: DetailsViewBody(recipeModel: recipeModel),
     );

@@ -9,10 +9,6 @@ sealed class StepsAndIngredientsState extends Equatable {
 
 final class StepsAndIngredientsInitial extends StepsAndIngredientsState {}
 
-final class StepsButtonState extends StepsAndIngredientsState {
- 
-}
+final class StepsButtonState extends StepsAndIngredientsState {}
 
-final class IngredientsButtonState extends StepsAndIngredientsState {
-  
-}
+final class IngredientsButtonState extends StepsAndIngredientsState {}

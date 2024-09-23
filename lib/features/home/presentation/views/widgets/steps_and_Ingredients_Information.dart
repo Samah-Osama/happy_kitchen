@@ -6,10 +6,11 @@ import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 
 class StepsAndIngredientsInformation extends StatelessWidget {
   const StepsAndIngredientsInformation({
-    super.key, required this.title, required this.content,
-    
+    super.key,
+    required this.title,
+    required this.content,
   });
-  final String title , content;
+  final String title, content;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +25,8 @@ class StepsAndIngredientsInformation extends StatelessWidget {
       ),
       child: GestureDetector(
         onTap: () {
-          showDialogRecipeInformation(context : context , title: title , content: content);
+          showDialogRecipeInformation(
+              context: context, title: title, content: content);
         },
         child: Text(
           overflow: TextOverflow.ellipsis,

@@ -3,5 +3,4 @@ class CategoryModel {
   final String image;
 
   CategoryModel({required this.categoryName, required this.image});
-  
 }

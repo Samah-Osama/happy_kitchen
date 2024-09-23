@@ -20,5 +20,5 @@ final class RecipeByCategorySuccess extends RecipeByCategoryState {
 final class RecipeByCategoryFailure extends RecipeByCategoryState {
   final String errorMessage;
 
- const RecipeByCategoryFailure({required this.errorMessage});
+  const RecipeByCategoryFailure({required this.errorMessage});
 }

@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 
-Future<dynamic> showDialogRecipeInformation({required BuildContext context, required String title , required String content}) {
+Future<dynamic> showDialogRecipeInformation(
+    {required BuildContext context,
+    required String title,
+    required String content}) {
   return showDialog(
       context: context,
       builder: (context) {

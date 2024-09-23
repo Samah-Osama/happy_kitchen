@@ -14,5 +14,5 @@ final class PickedImageSuccess extends PickedImageState {}
 final class PickedImageFailure extends PickedImageState {
   final String errorMessage;
 
-const  PickedImageFailure({required this.errorMessage});
+  const PickedImageFailure({required this.errorMessage});
 }

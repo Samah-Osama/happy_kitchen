@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:happy_kitchen/core/widgets/custom_image_error_widget.dart';
 import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custom_details_page_app_bar.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_details_widget.dart';
@@ -29,8 +30,10 @@ class DetailsViewBody extends StatelessWidget {
                     );
                   },
                   errorWidget: (context, url, error) {
-                    return Image.network(
-                        'https://demofree.sirv.com/nope-not-here.jpg');
+                    return const Icon(
+                      Icons.error,
+                      size: 25,
+                    );
                   },
                   imageUrl: recipeModel.image,
                 ),

@@ -16,5 +16,5 @@ final class AddRecipeSuccess extends AddRecipeState {}
 final class AddRecipeFailure extends AddRecipeState {
   final String errorMessage;
 
-const  AddRecipeFailure({required this.errorMessage});
+  const AddRecipeFailure({required this.errorMessage});
 }

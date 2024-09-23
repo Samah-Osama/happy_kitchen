@@ -18,7 +18,6 @@ class AllRecipesView extends StatelessWidget {
           "Let's find something to cook",
           style: Styles.textStyle18.copyWith(
             fontWeight: FontWeight.bold,
-           
           ),
         ),
       ),

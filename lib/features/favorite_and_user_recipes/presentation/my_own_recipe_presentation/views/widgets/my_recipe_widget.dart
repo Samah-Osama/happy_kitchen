@@ -89,11 +89,10 @@ class MyRecipeWidget extends StatelessWidget {
                 // var image = BlocProvider.of<PickedImageCubit>(context);
                 if (state is PickedImageSuccess) {
                   return Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                    child: Image.file(File(recipeModel.image))
-                  );
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      child: Image.file(File(recipeModel.image)));
                 } else {
                   return const Text('ooops');
                 }

@@ -4,7 +4,7 @@ import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 
 class FavoriteRecipesButton extends StatelessWidget {
-  const FavoriteRecipesButton( {
+  const FavoriteRecipesButton({
     super.key,
     this.onPressed,
   });

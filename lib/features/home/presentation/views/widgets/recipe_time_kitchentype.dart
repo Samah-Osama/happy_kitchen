@@ -21,7 +21,7 @@ class RecipeTimeAndKitchenTypeWidget extends StatelessWidget {
               textAlign: TextAlign.center,
               style: Styles.textStyle14..copyWith(fontWeight: FontWeight.bold)),
           const VerticalCircularWidget(length: 6),
-          Text((recipeModel.kitchenType) ?? 'No Kitchen',
+          Text(("${recipeModel.kitchenType} \n Kitchen"),
               textAlign: TextAlign.center,
               style: Styles.textStyle14.copyWith(fontWeight: FontWeight.bold)),
         ],

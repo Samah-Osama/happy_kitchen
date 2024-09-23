@@ -95,7 +95,10 @@ class UserRecipeImage extends StatelessWidget {
         color: Colors.grey.shade400,
         child: pickedImage == null
             ? Icon(Icons.add_a_photo, size: 50, color: Colors.grey[800])
-            : Image.file(pickedImage,fit: BoxFit.cover, ),
+            : Image.file(
+                pickedImage,
+                fit: BoxFit.cover,
+              ),
       ),
     );
   }

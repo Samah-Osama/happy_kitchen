@@ -1,4 +1,3 @@
-
 import 'package:hive/hive.dart';
 part 'add_recipe_model.g.dart';
 
