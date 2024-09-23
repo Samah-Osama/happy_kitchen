@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
@@ -17,8 +18,22 @@ class DetailsViewBody extends StatelessWidget {
             children: [
               const CustomDetailsPageAppBar(),
               AspectRatio(
-                aspectRatio: 3 / 1.9,
-                child: Image.asset('assets/images/dish.png'),
+                aspectRatio: 3 / 2.2,
+                child: CachedNetworkImage(
+                  imageBuilder: (context, imageProvider) {
+                    return Container(
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              image: imageProvider, fit: BoxFit.fill)),
+                    );
+                  },
+                  errorWidget: (context, url, error) {
+                    return Image.network(
+                        'https://demofree.sirv.com/nope-not-here.jpg');
+                  },
+                  imageUrl: recipeModel.image,
+                ),
               ),
             ],
           ),

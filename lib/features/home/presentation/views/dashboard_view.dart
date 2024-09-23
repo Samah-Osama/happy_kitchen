@@ -39,8 +39,8 @@ class _DashBoardViewState extends State<DashBoardView> {
             ],
           ),
         ),
-        SliverToBoxAdapter(child: SizedBox(height: 100.r)),
-        const RecipesList(),
+        SliverToBoxAdapter(child: SizedBox(height: 50.r)),
+        const SliverFillRemaining(child: RecipesList()),
         SliverToBoxAdapter(child: SizedBox(height: 10.r)),
       ],
     );

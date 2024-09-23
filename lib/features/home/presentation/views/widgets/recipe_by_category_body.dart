@@ -20,7 +20,7 @@ class RecipeByCategoryBody extends StatelessWidget {
                   height: 50.r,
                 ),
               ),
-              const RecipesList()
+            const  SliverFillRemaining(child:  RecipesList())
             ],
           );
         } else if (state is RecipeByCategoryFailure) {

@@ -12,11 +12,12 @@ class AllRecipeModel extends Equatable {
   final String? fat;
   final bool? isHalal;
   final int rating;
+  final String? kitchenType;
 
   const AllRecipeModel({
     required this.id,
     required this.title,
-  required  this.description,
+    required this.description,
     required this.image,
     required this.preparationTime,
     required this.category,
@@ -25,6 +26,7 @@ class AllRecipeModel extends Equatable {
     this.fat,
     this.isHalal,
     required this.rating,
+    this.kitchenType,
   });
 
   factory AllRecipeModel.fromJson(Map<String, dynamic> json) {
@@ -40,6 +42,7 @@ class AllRecipeModel extends Equatable {
       fat: json['fat'] as String?,
       isHalal: json['isHalal'] as bool?,
       rating: json['rating'] as int,
+      kitchenType: json['kitchenType'] as String?,
     );
   }
 

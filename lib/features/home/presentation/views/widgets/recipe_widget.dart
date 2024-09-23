@@ -1,10 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/details_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/rating_widget.dart';
-import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_time_level.dart';
+import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_time_kitchentype.dart';
 
 class RecipeWidget extends StatelessWidget {
   const RecipeWidget({super.key, this.color, required this.recipeModel});
@@ -37,16 +38,34 @@ class RecipeWidget extends StatelessWidget {
                 SizedBox(height: 8.r),
                 RatingWidget(recipeModel: recipeModel),
                 SizedBox(height: 12.r),
-                RecipeTimeAndLevelWidget(recipeModel: recipeModel),
+                RecipeTimeAndKitchenTypeWidget(recipeModel: recipeModel),
               ],
             ),
           ),
           Positioned(
-              left: 25.r,
-              bottom: 130.r,
-              child: Image.asset('assets/images/dish.png', height: 93.r))
+            left: 25.r,
+            bottom: 130.r,
+            child: CachedNetworkImage(
+              errorWidget: (context, url, error) {
+                return Image.network(
+                        'https://demofree.sirv.com/nope-not-here.jpg');
+              },
+              imageBuilder: (context, imageProvider) {
+                return Container(
+                  height: 100,
+                  width: 200,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(image: imageProvider)),
+                );
+              },
+              imageUrl: recipeModel.image,
+              height: 93.h,
+            ),
+          ),
         ],
       ),
     );
   }
 }
+// Image.asset('assets/images/dish.png', height: 93.r)

@@ -22,7 +22,7 @@ class AllRecipesBody extends StatelessWidget {
           ),
         ),
         SliverToBoxAdapter(child: SizedBox(height: 100.r)),
-        const RecipesList(),
+        const SliverFillRemaining(child: RecipesList()),
       ],
     );
   }

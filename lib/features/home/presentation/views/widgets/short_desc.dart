@@ -12,11 +12,13 @@ class ShortDesc extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        const CustomShortDescItem(text1: '30 Minutes', type: 'Cooking'),
+        CustomShortDescItem(
+            text1: "${recipeModel.preparationTime} Minutes", type: 'Cooking'),
         const VerticalCircularWidget(length: 12),
         CustomShortDescItem(text1: '${recipeModel.rating}', type: 'Rating'),
         const VerticalCircularWidget(length: 12),
-        const CustomShortDescItem(text1: 'Hard Level', type: 'Level'),
+        CustomShortDescItem(
+            text1: 'Country', type: recipeModel.kitchenType ?? 'No Country'),
       ],
     );
   }

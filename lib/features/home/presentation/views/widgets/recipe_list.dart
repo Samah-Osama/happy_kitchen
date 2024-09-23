@@ -14,60 +14,64 @@ class RecipesList extends StatefulWidget {
 }
 
 class _RecipesListState extends State<RecipesList> {
-  late final ScrollController scrollController;
-  int nextPage = 1;
-  @override
-  void initState() {
-    scrollController = ScrollController();
-    scrollController.addListener(scrollListener);
-    super.initState();
-  }
+  // late final ScrollController scrollController;
+  // int nextPage = 1;
+  // @override
+  // void initState() {
+  //   scrollController = ScrollController();
+  //   scrollController.addListener(scrollListener);
+  //   super.initState();
+  // }
 
-  void scrollListener() {
-    var currentPosition = scrollController.position.pixels;
-    if (currentPosition >= 0.9 * scrollController.position.maxScrollExtent) {
-      BlocProvider.of<AllRecipesCubit>(context)
-          .getAllRecipes(pageNumber: nextPage++);
-    }
-  }
+  // void scrollListener() {
+  //   var currentPosition = scrollController.position.pixels;
+  //   if (currentPosition >= 0.9 * scrollController.position.maxScrollExtent) {
+  //     BlocProvider.of<AllRecipesCubit>(context)
+  //         .getAllRecipes(pageNumber: nextPage++);
+  //   }
+  // }
 
-  @override
-  void dispose() {
-    scrollController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   scrollController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AllRecipesCubit, AllRecipesState>(
       builder: (context, state) {
         if (state is AllRecipesSuccess) {
-          return ListView(
-            controller: scrollController,
-            children: [
-              SliverGrid(
-                delegate: SliverChildBuilderDelegate(
-                    childCount: state.allRecipes.length, (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15.r),
-                    child: RecipeWidget(recipeModel: state.allRecipes[index]),
-                  );
-                }),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1.0,
-                    mainAxisSpacing: 80.r,
-                    crossAxisCount: 2),
-              ),
-            ],
-          );
+          return GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: state.allRecipes.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 1.0,
+                  mainAxisSpacing: 80.r,
+                  crossAxisCount: 2),
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15.r),
+                  child: RecipeWidget(recipeModel: state.allRecipes[index]),
+                );
+              });
+          // return SliverGrid(
+          //   delegate: SliverChildBuilderDelegate(
+          //       childCount: state.allRecipes.length, (context, index) {
+          //     return Padding(
+          //       padding: EdgeInsets.symmetric(horizontal: 15.r),
+          //       child: RecipeWidget(recipeModel: state.allRecipes[index]),
+          //     );
+          //   }),
+          //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          //       childAspectRatio: 1.0,
+          //       mainAxisSpacing: 80.r,
+          //       crossAxisCount: 2),
+          // );
         } else if (state is AllRecipesFailure) {
-          return SliverToBoxAdapter(
-            child: CustomErrorWidget(errorMessage: state.errorMessage),
-          );
+          return CustomErrorWidget(errorMessage: state.errorMessage);
         }
-        return const SliverToBoxAdapter(
-          child: CustomLoadingIndicator(),
-        );
+        return const CustomLoadingIndicator();
       },
     );
   }

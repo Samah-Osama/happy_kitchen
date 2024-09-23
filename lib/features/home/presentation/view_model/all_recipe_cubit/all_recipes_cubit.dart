@@ -8,9 +8,9 @@ part 'all_recipes_state.dart';
 class AllRecipesCubit extends Cubit<AllRecipesState> {
   AllRecipesCubit(this.homeRepo) : super(AllRecipesInitial());
   final HomeRepo homeRepo;
-  Future<void> getAllRecipes({int pageNumber = 0}) async {
+  Future<void> getAllRecipes() async {
     emit(AllRecipesLoading());
-    var results = await homeRepo.fetchAllRecipes(pageNumber: pageNumber);
+    var results = await homeRepo.fetchAllRecipes();
     results.fold((failure) {
       emit(
         AllRecipesFailure(errorMessage: failure.errorMessage),
