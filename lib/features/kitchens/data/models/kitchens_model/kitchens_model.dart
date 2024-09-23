@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class Kitchens extends Equatable {
+class KitchensModel extends Equatable {
   final int? id;
   final String? name;
   final String? nameSpanish;
@@ -11,7 +11,7 @@ class Kitchens extends Equatable {
   final String? flag;
   final dynamic recipes;
 
-  const Kitchens({
+  const KitchensModel({
     this.id,
     this.name,
     this.nameSpanish,
@@ -23,7 +23,7 @@ class Kitchens extends Equatable {
     this.recipes,
   });
 
-  factory Kitchens.fromJson(Map<String, dynamic> json) => Kitchens(
+  factory KitchensModel.fromJson(Map<String, dynamic> json) => KitchensModel(
         id: json['id'] as int?,
         name: json['name'] as String?,
         nameSpanish: json['nameSpanish'] as String?,
