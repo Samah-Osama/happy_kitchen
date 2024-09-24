@@ -20,11 +20,7 @@ class DashBoardView extends StatefulWidget {
 
 class _DashBoardViewState extends State<DashBoardView> {
   @override
-  // void initState() {
-  //   super.initState();
-  //   BlocProvider.of<AllRecipesCubit>(context).getAllRecipes();
-  //   setState(() {});
-  // }
+ 
 
   late final ScrollController scrollController;
   int nextPage = 1;

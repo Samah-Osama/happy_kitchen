@@ -10,8 +10,7 @@ class KitchenTypeRepoImpel implements KitchenTypeRepo {
 
   KitchenTypeRepoImpel({required this.apiService});
   @override
-  Future<Either<Failure, List<KitchensModel>>>
-      fetchRecipeByKitchenType() async {
+  Future<Either<Failure, List<KitchensModel>>> fetchAllKitchensType() async {
     try {
       var data = await apiService.get(endpoint: 'kitchen-types');
       List<KitchensModel> kitchensList = [];

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:happy_kitchen/core/widgets/custom_loading_indicator.dart';
 import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
+import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_widget.dart';
 
 class RecipeList extends StatefulWidget {
@@ -13,24 +16,33 @@ class RecipeList extends StatefulWidget {
   @override
   State<RecipeList> createState() => _RecipeListState();
 }
-  // late final ScrollController scrollController;
-  // int nextPage = 1;
-  // @override
-  // void initState() {
-  //   scrollController = ScrollController();
-  //   scrollController.addListener(scrollListener);
-  //   super.initState();
-  // }
-
-  // void scrollListener() {
-  //   var currentPosition = scrollController.position.pixels;
-  //   if (currentPosition >= 0.8 * scrollController.position.maxScrollExtent) {
-  //     const CustomLoadingIndicator();
-  //     BlocProvider.of<AllRecipesCubit>(context).getAllRecipes(pageNumber: nextPage++);
-  //   }
-  // }
 
 class _RecipeListState extends State<RecipeList> {
+//  late final ScrollController scrollController;
+//   int nextPage = 1;
+
+//   @override
+//   void initState() {
+//     scrollController = ScrollController();
+//     scrollController.addListener(scrollListener);
+//     super.initState();
+//   }
+
+//   void scrollListener() {
+//     var currentPosition = scrollController.position.pixels;
+//     if (currentPosition >= 0.8 * scrollController.position.maxScrollExtent) {
+//       const CustomLoadingIndicator();
+//       BlocProvider.of<AllRecipesCubit>(context)
+//           .getAllRecipes(pageNumber: nextPage++);
+//     }
+//   }
+
+//   @override
+//   void dispose() {
+//     scrollController.dispose();
+//     super.dispose();
+//   }
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
