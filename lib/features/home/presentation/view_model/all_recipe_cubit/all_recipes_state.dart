@@ -16,6 +16,7 @@ final class AllRecipesSuccess extends AllRecipesState {
 }
 
 final class AllRecipesLoading extends AllRecipesState {}
+final class AllRecipesPaginationLoading extends AllRecipesState {}
 
 final class AllRecipesFailure extends AllRecipesState {
   final String errorMessage;

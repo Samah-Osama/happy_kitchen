@@ -7,7 +7,7 @@ import 'package:happy_kitchen/features/home/presentation/views/widgets/categorie
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custom_dashboard_view_app_bar.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custom_slide_widget.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custome_text.dart';
-import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_list.dart';
+import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_list_body.dart';
 
 class DashBoardView extends StatefulWidget {
   const DashBoardView({super.key});
@@ -67,7 +67,7 @@ class _DashBoardViewState extends State<DashBoardView> {
           ),
         ),
         SliverToBoxAdapter(child: SizedBox(height: 50.r)),
-        const SliverFillRemaining(child: RecipesList()),
+        const SliverFillRemaining(child: RecipesListBody()),
         SliverToBoxAdapter(child: SizedBox(height: 10.r)),
       ],
     );
