@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/constant.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
+import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
 import 'package:happy_kitchen/features/home/presentation/views/dashboard_view.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/views/favorite_and_userRecipe_view.dart';
 import 'package:happy_kitchen/features/kitchens/presentation/view/all_kitchen_view.dart';
@@ -26,6 +28,13 @@ List<Widget> views = [
 ];
 
 class _HomeViewState extends State<HomeView> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<AllRecipesCubit>(context).getAllRecipes();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

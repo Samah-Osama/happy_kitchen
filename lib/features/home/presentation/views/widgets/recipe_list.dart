@@ -25,16 +25,10 @@ class _RecipesListState extends State<RecipesList> {
 
   // void scrollListener() {
   //   var currentPosition = scrollController.position.pixels;
-  //   if (currentPosition >= 0.9 * scrollController.position.maxScrollExtent) {
-  //     BlocProvider.of<AllRecipesCubit>(context)
-  //         .getAllRecipes(pageNumber: nextPage++);
+  //   if (currentPosition >= 0.8 * scrollController.position.maxScrollExtent) {
+  //     const CustomLoadingIndicator();
+  //     BlocProvider.of<AllRecipesCubit>(context).getAllRecipes(pageNumber: nextPage++);
   //   }
-  // }
-
-  // @override
-  // void dispose() {
-  //   scrollController.dispose();
-  //   super.dispose();
   // }
 
   @override
@@ -43,7 +37,8 @@ class _RecipesListState extends State<RecipesList> {
       builder: (context, state) {
         if (state is AllRecipesSuccess) {
           return GridView.builder(
-              physics: const NeverScrollableScrollPhysics(),
+              // controller: scrollController,
+             physics: const NeverScrollableScrollPhysics(),
               itemCount: state.allRecipes.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   childAspectRatio: 1.0,

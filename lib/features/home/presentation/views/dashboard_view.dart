@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:happy_kitchen/core/widgets/custom_loading_indicator.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/categories_list_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custom_dashboard_view_app_bar.dart';
@@ -19,15 +20,41 @@ class DashBoardView extends StatefulWidget {
 
 class _DashBoardViewState extends State<DashBoardView> {
   @override
+  // void initState() {
+  //   super.initState();
+  //   BlocProvider.of<AllRecipesCubit>(context).getAllRecipes();
+  //   setState(() {});
+  // }
+
+  late final ScrollController scrollController;
+  int nextPage = 1;
+
+  @override
   void initState() {
+    scrollController = ScrollController();
+    scrollController.addListener(scrollListener);
     super.initState();
-    BlocProvider.of<AllRecipesCubit>(context).getAllRecipes();
-    setState(() {});
+  }
+
+  void scrollListener() {
+    var currentPosition = scrollController.position.pixels;
+    if (currentPosition >= 0.8 * scrollController.position.maxScrollExtent) {
+      const CustomLoadingIndicator();
+      BlocProvider.of<AllRecipesCubit>(context)
+          .getAllRecipes(pageNumber: nextPage++);
+    }
+  }
+
+  @override
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      controller: scrollController,
       slivers: [
         const SliverToBoxAdapter(
           child: Column(

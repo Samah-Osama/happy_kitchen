@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:happy_kitchen/core/widgets/custom_image_error_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custom_details_page_app_bar.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_details_widget.dart';
@@ -19,12 +19,12 @@ class DetailsViewBody extends StatelessWidget {
             children: [
               const CustomDetailsPageAppBar(),
               AspectRatio(
-                aspectRatio: 3 / 2.2,
+                aspectRatio: 2.9 / 2.5,
                 child: CachedNetworkImage(
                   imageBuilder: (context, imageProvider) {
                     return Container(
                       decoration: BoxDecoration(
-                          shape: BoxShape.circle,
+                          borderRadius: BorderRadius.circular(50.r),
                           image: DecorationImage(
                               image: imageProvider, fit: BoxFit.fill)),
                     );

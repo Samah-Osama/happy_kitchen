@@ -20,7 +20,7 @@ class RecipeDetailsWidget extends StatelessWidget {
       children: [
         Container(
           width: MediaQuery.of(context).size.width,
-          margin: EdgeInsets.only(top: 28.r),
+          margin: EdgeInsets.only(top: 15.r),
           padding: EdgeInsets.symmetric(vertical: 28.r),
           decoration: BoxDecoration(
             color: ThemeColorHelper.getLightGreyAndDarkPink(context),
