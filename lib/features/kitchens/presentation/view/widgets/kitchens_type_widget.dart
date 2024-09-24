@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
+import 'package:happy_kitchen/features/kitchens/data/models/kitchens_model/kitchens_model.dart';
 
 class KitchensTypeWidget extends StatelessWidget {
   const KitchensTypeWidget({
     super.key,
+    required this.kitchensModel,
   });
-
+  final KitchensModel kitchensModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -26,9 +28,9 @@ class KitchensTypeWidget extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 35.r),
                   child: Text(
-                    'Français',
-                    style:
-                        Styles.textStyle18.copyWith(fontWeight: FontWeight.bold),
+                    kitchensModel.name ?? 'Other',
+                    style: Styles.textStyle18
+                        .copyWith(fontWeight: FontWeight.bold),
                   ),
                 )),
           ),
