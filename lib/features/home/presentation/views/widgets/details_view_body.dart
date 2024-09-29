@@ -34,7 +34,7 @@ class DetailsViewBody extends StatelessWidget {
                       size: 25,
                     );
                   },
-                  imageUrl: recipeModel.image,
+                  imageUrl: recipeModel.image ?? '',
                 ),
               ),
             ],

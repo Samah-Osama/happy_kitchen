@@ -40,7 +40,7 @@ class RecipeWidget extends StatelessWidget {
                     softWrap: true,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
-                    recipeModel.title,
+                    recipeModel.title ?? 'No title',
                     style: Styles.textStyle16),
                 SizedBox(height: 8.r),
                 RatingWidget(recipeModel: recipeModel),
@@ -73,7 +73,7 @@ class RecipeWidget extends StatelessWidget {
                           fit: BoxFit.fill, image: imageProvider)),
                 );
               },
-              imageUrl: recipeModel.image,
+              imageUrl: recipeModel.image ?? '',
             ),
           ),
         ],

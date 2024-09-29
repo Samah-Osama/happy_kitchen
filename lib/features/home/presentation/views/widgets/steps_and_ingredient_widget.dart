@@ -72,7 +72,7 @@ class _StepsAndIngredientWidgetState extends State<StepsAndIngredientWidget> {
           //   ),
           // ),
         ),
-        const SizedBox(height: 30),
+        SizedBox(height: 30.h),
         SizedBox(
           height: 100.h,
           child: PageView(
@@ -80,13 +80,13 @@ class _StepsAndIngredientWidgetState extends State<StepsAndIngredientWidget> {
             scrollDirection: Axis.horizontal,
             children: [
               StepsAndIngredientsInformation(
-                  title: 'Steps', content: widget.recipeModel.description),
+                  title: 'Steps', content: widget.recipeModel.description ?? ''),
               const StepsAndIngredientsInformation(
                   title: 'Ingredients', content: 'kdmcldsmc')
             ],
           ),
         ),
-        const SizedBox(height: 30),
+        SizedBox(height: 30.h),
       ],
     );
   }

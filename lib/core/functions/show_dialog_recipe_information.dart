@@ -16,8 +16,10 @@ Future<dynamic> showDialogRecipeInformation(
             title,
             style: Styles.textStyle28.copyWith(color: Colors.white),
           ),
-          content: Text(content,
-              style: Styles.textStyle18.copyWith(color: Colors.white)),
+          content: Text(
+            content,
+            style: Styles.textStyle18.copyWith(color: Colors.white),
+          ),
         );
       });
 }

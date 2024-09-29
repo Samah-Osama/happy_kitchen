@@ -4,16 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/assets.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
-import 'package:happy_kitchen/features/home/data/models/category_model/category_model.dart';
+import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/recipe_by_category/recipe_by_category_cubit.dart';
 import 'package:happy_kitchen/features/home/presentation/views/recipe_by_category_view.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({
     super.key,
-    required this.categories,
+    required this.recipeModel,
   });
-  final CategoryModel categories;
+  final AllRecipeModel recipeModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,8 +22,10 @@ class CategoryWidget extends StatelessWidget {
         onTap: () {
           // BlocProvider.of<RecipeByCategoryCubit>(context)
           //     .getRecipesByCategory();
-          Navigator.pushNamed(context, RecipeByCategoryView.id,
-              arguments: categories);
+          Navigator.pushNamed(
+            context,
+            RecipeByCategoryView.id,
+          );
         },
         child: Container(
           width: 160.r,
@@ -40,10 +42,10 @@ class CategoryWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: ThemeColorHelper.getSecondaryColor(context),
                     borderRadius: BorderRadius.circular(10)),
-                child: Image.asset(categories.image),
+                child: Image.asset(AssetsData.kLogo),
               ),
               Text(
-                categories.categoryName,
+                recipeModel.category ?? 'Other',
                 style: Styles.textStyle20
                     .copyWith(fontWeight: FontWeight.w700, color: Colors.black),
               )

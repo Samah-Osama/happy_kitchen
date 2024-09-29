@@ -8,15 +8,16 @@ part 'recipe_by_category_state.dart';
 class RecipeByCategoryCubit extends Cubit<RecipeByCategoryState> {
   RecipeByCategoryCubit(this.homeRepo) : super(RecipeByCategoryInitial());
   final HomeRepo homeRepo;
-
-  Future<void> getRecipesByCategory() async {
+  
+  Future<void> getRecipesByCategory({required String category}) async {
     emit(RecipeByCategoryLoading());
-    var results = await homeRepo.fetchAllRecipesByCategory();
+    var results = await homeRepo.fetchAllRecipesByCategory(category: category);
     results.fold((failure) {
       emit(
         RecipeByCategoryFailure(errorMessage: failure.errorMessage),
       );
     }, (recipe) {
+     
       emit(
         RecipeByCategorySuccess(recipes: recipe),
       );

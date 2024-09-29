@@ -1,31 +1,31 @@
 import 'package:equatable/equatable.dart';
 
 class AllRecipeModel extends Equatable {
-  final int id;
-  final String title;
-  final String description;
-  final String image;
-  final String preparationTime;
-  final String category;
+  final int? id;
+  final String? title;
+  final String? description;
+  final String? image;
+  final String? preparationTime;
+  final String? category;
   final int? serving;
   final bool? isVegan;
   final String? fat;
   final bool? isHalal;
-  final int rating;
+  final int? rating;
   final String? kitchenType;
 
   const AllRecipeModel({
-    required this.id,
-    required this.title,
-    required this.description,
-    required this.image,
-    required this.preparationTime,
-    required this.category,
+     this.id,
+     this.title,
+     this.description,
+     this.image,
+     this.preparationTime,
+     this.category,
     this.serving,
     this.isVegan,
     this.fat,
     this.isHalal,
-    required this.rating,
+     this.rating,
     this.kitchenType,
   });
 

@@ -35,7 +35,7 @@ class RecipeDetailsWidget extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .5,
                 child: Text(
-                  recipeModel.title,
+                  recipeModel.title??'No title',
                   textAlign: TextAlign.center,
                   style: Styles.textStyle28.copyWith(color: kWhiteColor),
                 ),
@@ -45,6 +45,8 @@ class RecipeDetailsWidget extends StatelessWidget {
               SizedBox(height: 28.h),
               StepsAndIngredientWidget(recipeModel: recipeModel),
               SizedBox(height: 28.h),
+             
+
             ],
           ),
         ),

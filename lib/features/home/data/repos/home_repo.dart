@@ -7,6 +7,6 @@ abstract class HomeRepo {
     );
   Future<Either<Failure, List<AllRecipeModel>>> fetchRecipesDetails(
       {required int id});
-  Future<Either<Failure, List<AllRecipeModel>>> fetchAllRecipesByCategory(
+  Future<Either<Failure, List<AllRecipeModel>>> fetchAllRecipesByCategory({required String category}
      );
 }

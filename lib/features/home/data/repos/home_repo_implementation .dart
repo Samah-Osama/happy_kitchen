@@ -10,8 +10,11 @@ class HomeRepoImplementation implements HomeRepo {
   HomeRepoImplementation({required this.apiService});
   @override
   Future<Either<Failure, List<AllRecipeModel>>> fetchAllRecipes(
+    
       {int pageNumber = 0}) async {
+        
     try {
+     
       var data = await apiService.get(
           endpoint:
               'recipes/AllRecipesByLanguageAndKitchenType?language=EN&page=$pageNumber&size=2');
@@ -44,12 +47,12 @@ class HomeRepoImplementation implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<AllRecipeModel>>> fetchAllRecipesByCategory(
+  Future<Either<Failure, List<AllRecipeModel>>> fetchAllRecipesByCategory({required String category}
       ) async {
     try {
       var data = await apiService.get(
           endpoint:
-              'http://88.223.94.70:8088/api/recipes/AllRecipesByLanguage?language=EN&page=0&size=10');
+              'http://88.223.94.70:8088/api/recipes/AllRecipesByLanguage?language=EN&page=0&size=10&category=$category');
       List<AllRecipeModel> allRecipeList = [];
       for (var recipe in data) {
         allRecipeList.add(AllRecipeModel.fromJson(recipe));

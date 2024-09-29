@@ -4,9 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/functions/snack_bar.dart';
 import 'package:happy_kitchen/core/widgets/custom_error_widget.dart';
 import 'package:happy_kitchen/core/widgets/custom_loading_indicator.dart';
-import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
-import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_list.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_widget.dart';
 
 class RecipesListBody extends StatefulWidget {
@@ -24,14 +22,16 @@ class _RecipesListBodyState extends State<RecipesListBody> {
       listener: (BuildContext context, AllRecipesState state) {
         if (state is AllRecipesPaginationFailure) {
           showSnackBar(context, state.errorMessage);
-        }
-      },
+      } 
+      //else if (state is AllRecipesPaginationLoading) {
+      //     CircularProgressIndicator();
+      //   }
+       },
       builder: (context, state) {
         if (state is AllRecipesSuccess ||
             state is AllRecipesPaginationLoading ||
             state is AllRecipesPaginationFailure) {
           return Stack(
-            
             children: [
               GridView.builder(
                 clipBehavior: Clip.none,
@@ -49,8 +49,8 @@ class _RecipesListBodyState extends State<RecipesListBody> {
                   );
                 },
               ),
-              // if (state is AllRecipesPaginationLoading)
-              //   const CustomLoadingIndicator(),
+              if (state is AllRecipesPaginationLoading)
+                const CustomLoadingIndicator(),
             ],
           );
         } else if (state is AllRecipesFailure) {

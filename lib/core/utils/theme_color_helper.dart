@@ -55,4 +55,9 @@ class ThemeColorHelper {
         ? kWhiteColor
         : Colors.black;
   }
+   static Color getYellowAndWhite(context) {
+    return Theme.of(context).brightness == Brightness.dark
+        ? kPrimaryColorDarkMode
+        : kWhiteColor;
+  }
 }

@@ -71,12 +71,6 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               theme: state.copyWith(
                   appBarTheme: const AppBarTheme(color: Colors.transparent)),
-              // ThemeData(
-              //   scaffoldBackgroundColor: kDarkColor,
-              //   colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor),
-              //   fontFamily: "Lato",
-              //   useMaterial3: true,
-              // ),
               routes: {
                 HomeView.id: (context) => const HomeView(),
                 AllRecipesView.id: (context) => const AllRecipesView(),
