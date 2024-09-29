@@ -44,7 +44,7 @@ class ServerFailure extends Failure {
     } else if (statusCode == 404) {
       return ServerFailure(
           errorMessage: ' Your request not found , Please try later');
-      //in this case i don't recive response aslan
+      //in this case i don't receive response aslan
     } else {
       return ServerFailure(
           errorMessage: 'Oops there is an error , Please try later');

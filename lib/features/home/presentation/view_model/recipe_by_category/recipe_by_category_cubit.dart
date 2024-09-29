@@ -9,9 +9,9 @@ class RecipeByCategoryCubit extends Cubit<RecipeByCategoryState> {
   RecipeByCategoryCubit(this.homeRepo) : super(RecipeByCategoryInitial());
   final HomeRepo homeRepo;
 
-  Future<void> getRecipesByCategory({required String category}) async {
+  Future<void> getRecipesByCategory() async {
     emit(RecipeByCategoryLoading());
-    var results = await homeRepo.fetchAllRecipesByCategory(category: category);
+    var results = await homeRepo.fetchAllRecipesByCategory();
     results.fold((failure) {
       emit(
         RecipeByCategoryFailure(errorMessage: failure.errorMessage),

@@ -23,3 +23,8 @@ final class AllRecipesFailure extends AllRecipesState {
 
   const AllRecipesFailure({required this.errorMessage});
 }
+final class AllRecipesPaginationFailure extends AllRecipesState {
+  final String errorMessage;
+
+  const AllRecipesPaginationFailure({required this.errorMessage});
+}

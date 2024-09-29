@@ -19,9 +19,6 @@ class DashBoardView extends StatefulWidget {
 }
 
 class _DashBoardViewState extends State<DashBoardView> {
-  @override
- 
-
   late final ScrollController scrollController;
   int nextPage = 1;
 
@@ -34,14 +31,13 @@ class _DashBoardViewState extends State<DashBoardView> {
 
   void scrollListener() {
     var currentPosition = scrollController.position.pixels;
-    if (currentPosition >= 0.8 * scrollController.position.maxScrollExtent) {
-      const CustomLoadingIndicator();
+    if (currentPosition == scrollController.position.maxScrollExtent) {
       BlocProvider.of<AllRecipesCubit>(context)
           .getAllRecipes(pageNumber: nextPage++);
+      print('paaaage$nextPage');
     }
   }
-
-  @override
+@override
   void dispose() {
     scrollController.dispose();
     super.dispose();

@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => AllRecipesCubit(
               getIt.get<HomeRepoImplementation>(),
-            ),
+            )..getAllRecipes(),
           ),
           BlocProvider(
             create: (context) => RecipeByCategoryCubit(

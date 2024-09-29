@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/constant.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
-import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
 import 'package:happy_kitchen/features/home/presentation/views/dashboard_view.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/views/favorite_and_userRecipe_view.dart';
 import 'package:happy_kitchen/features/kitchens/presentation/view/all_kitchen_view.dart';
+import 'package:happy_kitchen/features/shipping_notes/presentation/views/shipping_notes_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -21,6 +20,7 @@ List<Widget> views = [
   const DashBoardView(),
   const AllKitchensView(),
   const FavoritesAndUserRecipesView(),
+  const ShippingNotesView()
   // const AddRecipeView()
   // const FavoritsScreen(),
 //  AllRecipesScreen()
@@ -28,13 +28,6 @@ List<Widget> views = [
 ];
 
 class _HomeViewState extends State<HomeView> {
-  @override
-  void initState() {
-    super.initState();
-    BlocProvider.of<AllRecipesCubit>(context).getAllRecipes();
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,9 +53,9 @@ class _HomeViewState extends State<HomeView> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.favorite_border, size: 30.r),
                 label: 'Favorite'),
-            // BottomNavigationBarItem(
-            //     icon: Icon(Icons.add_circle_outline_outlined, size: 30.r),
-            //     label: '.'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.add_circle_outline_outlined, size: 30.r),
+                label: '.'),
           ],
         ),
       ),

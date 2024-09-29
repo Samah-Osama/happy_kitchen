@@ -11,7 +11,8 @@ class AllKitchensView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => KitchensTypeCubit(getIt.get<KitchenTypeRepoImpel>())..getAllKitchens(),
+      create: (context) => KitchensTypeCubit(getIt.get<KitchenTypeRepoImpel>())
+        ..getAllKitchens(),
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,

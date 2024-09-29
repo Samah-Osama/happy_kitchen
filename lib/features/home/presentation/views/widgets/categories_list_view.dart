@@ -10,9 +10,9 @@ class CategoryListView extends StatelessWidget {
   Widget build(BuildContext context) {
     // final List<String> recipesCategory = ['SOUP', 'MAIN_DISH', 'SIDE_DISH'];
     List<CategoryModel> categoryModel = [
-      CategoryModel(categoryName: 'SOUP', image: AssetsData.kLogo),
-      CategoryModel(categoryName: 'MAIN_DISH', image: AssetsData.kLogo),
-      CategoryModel(categoryName: 'SIDE_DISH', image: AssetsData.kLogo)
+      CategoryModel(categoryName: 'SAUCE', image: AssetsData.kLogo),
+      CategoryModel(categoryName: 'SNACK', image: AssetsData.kLogo),
+      CategoryModel(categoryName: 'SALAD', image: AssetsData.kLogo)
     ];
     return SizedBox(
       height: 70.r,
@@ -21,7 +21,8 @@ class CategoryListView extends StatelessWidget {
           itemCount: categoryModel.length,
           itemBuilder: (context, index) {
             return CategoryWidget(
-                categoryName: categoryModel[index].categoryName);
+              categories: categoryModel[index],
+            );
           }),
     );
   }

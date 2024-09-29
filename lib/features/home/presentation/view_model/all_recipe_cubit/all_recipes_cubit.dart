@@ -8,6 +8,8 @@ part 'all_recipes_state.dart';
 class AllRecipesCubit extends Cubit<AllRecipesState> {
   AllRecipesCubit(this.homeRepo) : super(AllRecipesInitial());
   final HomeRepo homeRepo;
+  List<AllRecipeModel> allRecipeList = [];
+
   Future<void> getAllRecipes({int pageNumber = 0}) async {
     if (pageNumber == 0) {
       emit(AllRecipesLoading());
@@ -16,12 +18,17 @@ class AllRecipesCubit extends Cubit<AllRecipesState> {
     }
     var results = await homeRepo.fetchAllRecipes(pageNumber: pageNumber);
     results.fold((failure) {
-      emit(
-        AllRecipesFailure(errorMessage: failure.errorMessage),
-      );
+      if (pageNumber == 0) {
+        emit(
+          AllRecipesFailure(errorMessage: failure.errorMessage),
+        );
+      } else {
+        emit(AllRecipesPaginationFailure(errorMessage: failure.errorMessage));
+      }
     }, (recipe) {
+      allRecipeList.addAll(recipe);
       emit(
-        AllRecipesSuccess(allRecipes: recipe),
+        AllRecipesSuccess(allRecipes: allRecipeList),
       );
     });
   }

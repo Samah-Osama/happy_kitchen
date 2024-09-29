@@ -31,7 +31,7 @@ class _AllRecipesCategoryWidgetState extends State<AllRecipesCategoryWidget> {
           height: 50.h,
           decoration: BoxDecoration(
             color: currentIndex == index
-                ? ThemeColorHelper.getSeconderyColor(context)
+                ? ThemeColorHelper.getSecondaryColor(context)
                 : ThemeColorHelper.getLightGreyAndDarkPink(context),
             borderRadius: BorderRadius.circular(15),
           ),

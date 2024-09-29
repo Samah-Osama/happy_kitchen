@@ -14,35 +14,35 @@ class AllRecipesBody extends StatefulWidget {
 }
 
 class _AllRecipesBodyState extends State<AllRecipesBody> {
-   late final ScrollController scrollController;
-  int nextPage = 1;
+  //  late final ScrollController scrollController;
+  // int nextPage = 1;
 
-  @override
-  void initState() {
-    scrollController = ScrollController();
-    scrollController.addListener(scrollListener);
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   scrollController = ScrollController();
+  //   scrollController.addListener(scrollListener);
+  //   super.initState();
+  // }
 
-  void scrollListener() {
-    var currentPosition = scrollController.position.pixels;
-    if (currentPosition >= 0.8 * scrollController.position.maxScrollExtent) {
-      const CustomLoadingIndicator();
-      BlocProvider.of<AllRecipesCubit>(context)
-          .getAllRecipes(pageNumber: nextPage++);
-    }
-  }
+  // void scrollListener() {
+  //   var currentPosition = scrollController.position.pixels;
+  //   if (currentPosition >= 0.8 * scrollController.position.maxScrollExtent) {
+  //     const CustomLoadingIndicator();
+  //     BlocProvider.of<AllRecipesCubit>(context)
+  //         .getAllRecipes();
+  //   }
+  // }
 
-  @override
-  void dispose() {
-    scrollController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   scrollController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      controller: scrollController,
+      // controller: scrollController,
       slivers: [
         SliverToBoxAdapter(
           child: Column(

@@ -14,7 +14,7 @@ class ThemeColorHelper {
         : kDarkColor;
   }
 
-  static Color getSeconderyColor(context) {
+  static Color getSecondaryColor(context) {
     return Theme.of(context).brightness == Brightness.dark
         ? kSecondaryColorD
         : kSecondaryColorLightM;

@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
-import 'package:happy_kitchen/core/widgets/custom_image_error_widget.dart';
 import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/details_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/rating_widget.dart';
@@ -25,7 +24,7 @@ class RecipeWidget extends StatelessWidget {
           Container(
             height: 200.h,
             width: 190.w,
-            padding: EdgeInsets.only(bottom: 24.r),
+            padding: EdgeInsets.only(bottom: 5.r),
             decoration: BoxDecoration(
                 color: color,
                 borderRadius: BorderRadius.circular(30.r),
