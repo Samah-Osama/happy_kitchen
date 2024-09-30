@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:happy_kitchen/constant.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custom_actions_widget.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class CustomDetailsPageAppBar extends StatelessWidget {
   const CustomDetailsPageAppBar({
@@ -17,7 +19,6 @@ class CustomDetailsPageAppBar extends StatelessWidget {
         children: [
           CustomActionsWidget(
             onTap: () {
-              
               Navigator.pop(context);
             },
             child: const Icon(
