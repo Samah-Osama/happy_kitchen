@@ -5,7 +5,6 @@ import 'package:happy_kitchen/core/functions/snack_bar.dart';
 import 'package:happy_kitchen/core/widgets/custom_error_widget.dart';
 import 'package:happy_kitchen/core/widgets/custom_loading_indicator.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
-import 'package:happy_kitchen/features/home/presentation/views/dashboard_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_widget.dart';
 
 class RecipesListBody extends StatefulWidget {

@@ -1,20 +1,33 @@
-import 'package:equatable/equatable.dart';
-
-class FavoriteModel extends Equatable {
+import 'package:hive/hive.dart';
+part 'favorite_model.g.dart';
+@HiveType(typeId: 1)
+class FavoriteModel extends HiveObject {
+  @HiveField(0)
   final int id;
+  @HiveField(1)
   final String title;
+  @HiveField(2)
   final String description;
+  @HiveField(3)
   final String image;
+  @HiveField(4)
   final String preparationTime;
+  @HiveField(5)
   final String category;
+  @HiveField(6)
   final int? serving;
+  @HiveField(7)
   final bool? isVegan;
+  @HiveField(8)
   final String? fat;
+  @HiveField(9)
   final bool? isHalal;
+  @HiveField(10)
   final int rating;
+  @HiveField(11)
   final String kitchenType;
 
-  const FavoriteModel({
+   FavoriteModel({
     required this.id,
     required this.title,
     required this.description,
