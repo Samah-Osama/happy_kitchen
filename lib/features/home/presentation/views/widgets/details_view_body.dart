@@ -16,7 +16,7 @@ class DetailsViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Column(
             children: [
-              const CustomDetailsPageAppBar(),
+               CustomDetailsPageAppBar(recipeModel:recipeModel ),
               AspectRatio(
                 aspectRatio: 2.9 / 2.5,
                 child: CachedNetworkImage(

@@ -20,7 +20,7 @@ class UserRecipeViewBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: Column(
               children: [
-                const CustomDetailsPageAppBar(),
+              const   CustomDetailsPageAppBar(),
                 AspectRatio(
                   aspectRatio: 3 / 1.9,
                   child: Image.file(File(recipeModel.image)),
