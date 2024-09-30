@@ -6,7 +6,7 @@ import 'package:happy_kitchen/core/utils/service_locator.dart';
 import 'package:happy_kitchen/core/utils/services/theme_service/cubit/theme_cubit.dart';
 import 'package:happy_kitchen/core/utils/simple_bloc_observer.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/data/my_own_recipe_data/models/add_recipe_model.dart';
-import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/favorite_presentation/view_model/favorite_model.dart';
+import 'package:happy_kitchen/features/favorite_and_user_recipes/data/favorite_data/models/favorite_model.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/view_model/picked_image/picked_image_cubit.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/view_model/user_recipe_cubit/user_recipe_cubit.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/views/add_recipe_view.dart';
