@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:happy_kitchen/core/functions/snack_bar.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/categories_list_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custom_dashboard_view_app_bar.dart';
@@ -8,11 +9,11 @@ import 'package:happy_kitchen/features/home/presentation/views/widgets/custom_sl
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custome_text.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_list_body.dart';
 
-bool thereIsMoreData = true;
+
 
 class DashBoardView extends StatefulWidget {
   const DashBoardView({super.key});
-  
+
   static String id = 'DashBoardView';
 
   @override
@@ -31,12 +32,17 @@ class _DashBoardViewState extends State<DashBoardView> {
   }
 
   void scrollListener() {
+    var thereIsMoreData =
+        BlocProvider.of<AllRecipesCubit>(context).thereIsMoreData;
     var currentPosition = scrollController.position.pixels;
-    if (currentPosition == scrollController.position.maxScrollExtent &&
-        thereIsMoreData) {
-      BlocProvider.of<AllRecipesCubit>(context).getAllRecipes(
-          pageNumber: nextPage++, thereIsMoreData: thereIsMoreData);
-      print('paaaage$nextPage');
+    if (currentPosition == scrollController.position.maxScrollExtent) {
+      if (thereIsMoreData) {
+        BlocProvider.of<AllRecipesCubit>(context)
+            .getAllRecipes(pageNumber: nextPage++);
+        print("this paaaage is $nextPage");
+      } else {
+        showSnackBar(context, 'There Is No More Recipes 😥');
+      }
     }
   }
 

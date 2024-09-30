@@ -16,6 +16,7 @@ class RecipesListBody extends StatefulWidget {
 }
 
 class _RecipesListBodyState extends State<RecipesListBody> {
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     var data = BlocProvider.of<AllRecipesCubit>(context);
@@ -23,17 +24,16 @@ class _RecipesListBodyState extends State<RecipesListBody> {
       listener: (BuildContext context, AllRecipesState state) {
         if (state is AllRecipesPaginationFailure) {
           showSnackBar(context, state.errorMessage);
-        } else if (state is NoMoreRecipeState) {
-          thereIsMoreData = false;
         }
-        // else if (state is AllRecipesPaginationLoading) {
-        //     CircularProgressIndicator();
-        //   }
+        // else if (state is NoMoreRecipeState) {
+        //   thereIsMoreData = false;
+        // }
       },
       builder: (context, state) {
         if (state is AllRecipesSuccess ||
             state is AllRecipesPaginationLoading ||
-            state is AllRecipesPaginationFailure || state is NoMoreRecipeState) {
+            state is AllRecipesPaginationFailure ||
+            state is NoMoreRecipeState) {
           return Stack(
             children: [
               GridView.builder(
@@ -52,8 +52,8 @@ class _RecipesListBodyState extends State<RecipesListBody> {
                   );
                 },
               ),
-              if (state is AllRecipesPaginationLoading)
-                const CustomLoadingIndicator(),
+              // if (state is AllRecipesPaginationLoading)
+              //   const CustomLoadingIndicator(),
             ],
           );
         } else if (state is AllRecipesFailure) {
