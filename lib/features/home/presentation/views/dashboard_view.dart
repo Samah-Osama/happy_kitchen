@@ -8,9 +8,11 @@ import 'package:happy_kitchen/features/home/presentation/views/widgets/custom_sl
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custome_text.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_list_body.dart';
 
+bool thereIsMoreData = true;
+
 class DashBoardView extends StatefulWidget {
   const DashBoardView({super.key});
-  @override
+  
   static String id = 'DashBoardView';
 
   @override
@@ -30,13 +32,15 @@ class _DashBoardViewState extends State<DashBoardView> {
 
   void scrollListener() {
     var currentPosition = scrollController.position.pixels;
-    if (currentPosition == scrollController.position.maxScrollExtent) {
-      BlocProvider.of<AllRecipesCubit>(context)
-          .getAllRecipes(pageNumber: nextPage++);
+    if (currentPosition == scrollController.position.maxScrollExtent &&
+        thereIsMoreData) {
+      BlocProvider.of<AllRecipesCubit>(context).getAllRecipes(
+          pageNumber: nextPage++, thereIsMoreData: thereIsMoreData);
       print('paaaage$nextPage');
     }
   }
-@override
+
+  @override
   void dispose() {
     scrollController.dispose();
     super.dispose();

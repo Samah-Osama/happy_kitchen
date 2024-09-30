@@ -9,27 +9,35 @@ class AllRecipesCubit extends Cubit<AllRecipesState> {
   AllRecipesCubit(this.homeRepo) : super(AllRecipesInitial());
   final HomeRepo homeRepo;
   List<AllRecipeModel> allRecipeList = [];
+  
 
-  Future<void> getAllRecipes({int pageNumber = 0}) async {
-    if (pageNumber == 0) {
-      emit(AllRecipesLoading());
-    } else {
-      emit(AllRecipesPaginationLoading());
-    }
-    var results = await homeRepo.fetchAllRecipes(pageNumber: pageNumber);
-    results.fold((failure) {
+  Future<void> getAllRecipes(
+      {int pageNumber = 0, bool thereIsMoreData = true}) async {
+    if (thereIsMoreData) {
       if (pageNumber == 0) {
-        emit(
-          AllRecipesFailure(errorMessage: failure.errorMessage),
-        );
+        emit(AllRecipesLoading());
       } else {
-        emit(AllRecipesPaginationFailure(errorMessage: failure.errorMessage));
+        emit(AllRecipesPaginationLoading());
       }
-    }, (recipe) {
-      allRecipeList.addAll(recipe);
-      emit(
-        AllRecipesSuccess(allRecipes: allRecipeList),
-      );
-    });
+      var results = await homeRepo.fetchAllRecipes(pageNumber: pageNumber);
+      results.fold((failure) {
+        if (pageNumber == 0) {
+          emit(
+            AllRecipesFailure(errorMessage: failure.errorMessage),
+          );
+        } else {
+          emit(AllRecipesPaginationFailure(errorMessage: failure.errorMessage));
+        }
+      }, (newRecipeList) {
+        if (newRecipeList.isEmpty) {
+          emit(NoMoreRecipeState());
+        } else {
+          allRecipeList.addAll(newRecipeList);
+          emit(
+            AllRecipesSuccess(allRecipes: allRecipeList),
+          );
+        }
+      });
+    }
   }
 }

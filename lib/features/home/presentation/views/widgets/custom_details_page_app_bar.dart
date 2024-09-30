@@ -17,6 +17,7 @@ class CustomDetailsPageAppBar extends StatelessWidget {
         children: [
           CustomActionsWidget(
             onTap: () {
+              
               Navigator.pop(context);
             },
             child: const Icon(
@@ -25,7 +26,9 @@ class CustomDetailsPageAppBar extends StatelessWidget {
             ),
           ),
           CustomActionsWidget(
-            onTap: () {},
+            onTap: () {
+              
+            },
             child: const Icon(
               Icons.favorite,
               size: 24.0,

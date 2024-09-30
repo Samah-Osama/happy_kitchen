@@ -4,28 +4,26 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/assets.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
-import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
+import 'package:happy_kitchen/features/home/data/models/category_model/category_model.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/recipe_by_category/recipe_by_category_cubit.dart';
 import 'package:happy_kitchen/features/home/presentation/views/recipe_by_category_view.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({
-    super.key,
-    required this.recipeModel,
+    super.key, required this.categoryModel,
   });
-  final AllRecipeModel recipeModel;
+  // final AllRecipeModel recipeModel;
+  final CategoryModel categoryModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 30),
       child: GestureDetector(
         onTap: () {
-          // BlocProvider.of<RecipeByCategoryCubit>(context)
-          //     .getRecipesByCategory();
-          Navigator.pushNamed(
-            context,
-            RecipeByCategoryView.id,
-          );
+          BlocProvider.of<RecipeByCategoryCubit>(context)
+              .getRecipesByCategory(category:categoryModel.categoryName);
+          Navigator.pushNamed(context, RecipeByCategoryView.id,arguments: categoryModel
+              );
         },
         child: Container(
           width: 160.r,
@@ -45,7 +43,7 @@ class CategoryWidget extends StatelessWidget {
                 child: Image.asset(AssetsData.kLogo),
               ),
               Text(
-                recipeModel.category ?? 'Other',
+                categoryModel.categoryName,
                 style: Styles.textStyle20
                     .copyWith(fontWeight: FontWeight.w700, color: Colors.black),
               )

@@ -9,6 +9,8 @@ sealed class AllRecipesState extends Equatable {
 
 final class AllRecipesInitial extends AllRecipesState {}
 
+final class NoMoreRecipeState extends AllRecipesState {}
+
 final class AllRecipesSuccess extends AllRecipesState {
   final List<AllRecipeModel> allRecipes;
 
@@ -16,6 +18,7 @@ final class AllRecipesSuccess extends AllRecipesState {
 }
 
 final class AllRecipesLoading extends AllRecipesState {}
+
 final class AllRecipesPaginationLoading extends AllRecipesState {}
 
 final class AllRecipesFailure extends AllRecipesState {
@@ -23,6 +26,7 @@ final class AllRecipesFailure extends AllRecipesState {
 
   const AllRecipesFailure({required this.errorMessage});
 }
+
 final class AllRecipesPaginationFailure extends AllRecipesState {
   final String errorMessage;
 

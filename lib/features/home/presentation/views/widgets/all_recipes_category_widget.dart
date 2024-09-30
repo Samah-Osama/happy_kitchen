@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/assets.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
-import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
 
 class AllRecipesCategoryWidget extends StatefulWidget {
   const AllRecipesCategoryWidget({

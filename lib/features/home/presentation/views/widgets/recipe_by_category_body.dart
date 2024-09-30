@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/widgets/custom_error_widget.dart';
 import 'package:happy_kitchen/core/widgets/custom_loading_indicator.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/recipe_by_category/recipe_by_category_cubit.dart';
-import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_list_body.dart';
+import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_widget.dart';
 
 class RecipeByCategoryBody extends StatelessWidget {
   const RecipeByCategoryBody({super.key});
@@ -20,7 +20,22 @@ class RecipeByCategoryBody extends StatelessWidget {
                   height: 50.r,
                 ),
               ),
-              const SliverFillRemaining(child: RecipesListBody())
+               SliverFillRemaining(child:  GridView.builder(
+                clipBehavior: Clip.none,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount:state.recipes.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    childAspectRatio: 1.0,
+                    mainAxisSpacing: 70.r,
+                    crossAxisSpacing: 10.r,
+                    crossAxisCount: 2),
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 15.r),
+                    child: RecipeWidget(recipeModel: state.recipes[index]),
+                  );
+                },
+              ),)
             ],
           );
         } else if (state is RecipeByCategoryFailure) {

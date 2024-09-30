@@ -5,6 +5,7 @@ import 'package:happy_kitchen/core/functions/snack_bar.dart';
 import 'package:happy_kitchen/core/widgets/custom_error_widget.dart';
 import 'package:happy_kitchen/core/widgets/custom_loading_indicator.dart';
 import 'package:happy_kitchen/features/home/presentation/view_model/all_recipe_cubit/all_recipes_cubit.dart';
+import 'package:happy_kitchen/features/home/presentation/views/dashboard_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_widget.dart';
 
 class RecipesListBody extends StatefulWidget {
@@ -22,15 +23,17 @@ class _RecipesListBodyState extends State<RecipesListBody> {
       listener: (BuildContext context, AllRecipesState state) {
         if (state is AllRecipesPaginationFailure) {
           showSnackBar(context, state.errorMessage);
-      } 
-      //else if (state is AllRecipesPaginationLoading) {
-      //     CircularProgressIndicator();
-      //   }
-       },
+        } else if (state is NoMoreRecipeState) {
+          thereIsMoreData = false;
+        }
+        // else if (state is AllRecipesPaginationLoading) {
+        //     CircularProgressIndicator();
+        //   }
+      },
       builder: (context, state) {
         if (state is AllRecipesSuccess ||
             state is AllRecipesPaginationLoading ||
-            state is AllRecipesPaginationFailure) {
+            state is AllRecipesPaginationFailure || state is NoMoreRecipeState) {
           return Stack(
             children: [
               GridView.builder(
