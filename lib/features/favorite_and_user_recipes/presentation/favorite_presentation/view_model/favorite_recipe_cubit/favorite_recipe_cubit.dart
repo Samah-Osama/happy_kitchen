@@ -8,10 +8,10 @@ part 'favorite_recipe_state.dart';
 
 class FavoriteRecipeCubit extends Cubit<FavoriteRecipeState> {
   FavoriteRecipeCubit() : super(FavoriteRecipeInitial());
-  List<FavoriteModel>? favoriteRecipes;
+  List<FavoriteModel>? favoriteRecipeList;
   getFavoriteRecipe() {
-    var recipeBox = Hive.box<FavoriteModel>(kRecipeBox);
-    favoriteRecipes = recipeBox.values.toList();
-    emit(FavoriteRecipeSuccess(favoriteRecipes: favoriteRecipes!));
+    var favoriteBox = Hive.box<FavoriteModel>(kFavoriteBox);
+    favoriteRecipeList = favoriteBox.values.toList();
+    emit(FavoriteRecipeSuccess(favoriteRecipes: favoriteRecipeList!));
   }
 }

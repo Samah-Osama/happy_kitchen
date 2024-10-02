@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:happy_kitchen/constant.dart';
 import 'package:happy_kitchen/core/functions/snack_bar.dart';
 import 'package:happy_kitchen/core/utils/assets.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/data/favorite_data/models/favorite_model.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/favorite_presentation/view_model/add_recipe_to_favorite_cubit/add_recipe_to_favorite_cubit.dart';
 import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custom_actions_widget.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 class CustomDetailsPageAppBar extends StatelessWidget {
   const CustomDetailsPageAppBar({

@@ -4,6 +4,10 @@ import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/fa
 
 class FavoritesViewBody extends StatelessWidget {
   const FavoritesViewBody({super.key});
+
+  @override
+ 
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -11,7 +15,7 @@ class FavoritesViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: SizedBox(height: 70.h),
         ),
-        const FavoritesRecipesList(),
+        const SliverFillRemaining(child: FavoritesRecipesList()),
       ],
     );
   }

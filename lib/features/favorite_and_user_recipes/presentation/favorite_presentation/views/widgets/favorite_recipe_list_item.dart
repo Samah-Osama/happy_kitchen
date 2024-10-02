@@ -7,11 +7,11 @@ import 'package:happy_kitchen/features/favorite_and_user_recipes/data/favorite_d
 
 class FavoriteRecipeListItem extends StatelessWidget {
   const FavoriteRecipeListItem({
-    super.key,
-    required this.recipe,
+    super.key, required this.recipe,
+   
   });
 
-  final FavoriteModel recipe;
+   final FavoriteModel recipe;
 
   @override
   Widget build(BuildContext context) {
