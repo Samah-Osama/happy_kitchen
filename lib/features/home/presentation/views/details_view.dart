@@ -12,11 +12,8 @@ class DetailsView extends StatelessWidget {
     var recipeModel =
         ModalRoute.of(context)!.settings.arguments as AllRecipeModel;
 
-    return BlocProvider(
-      create: (context) => AddRecipeToFavoriteCubit(),
-      child: Scaffold(
-        body: DetailsViewBody(recipeModel: recipeModel),
-      ),
+    return Scaffold(
+      body: DetailsViewBody(recipeModel: recipeModel),
     );
   }
 }

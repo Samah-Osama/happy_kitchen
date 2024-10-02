@@ -40,7 +40,7 @@ class RecipeWidget extends StatelessWidget {
                     softWrap: true,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
-                    recipeModel.title ?? 'No title',
+                    recipeModel.title,
                     style: Styles.textStyle16),
                 SizedBox(height: 8.r),
                 RatingWidget(recipeModel: recipeModel),

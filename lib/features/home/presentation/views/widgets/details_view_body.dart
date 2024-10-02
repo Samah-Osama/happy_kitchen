@@ -7,7 +7,7 @@ import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_de
 
 class DetailsViewBody extends StatelessWidget {
   const DetailsViewBody({super.key, required this.recipeModel});
-  @override
+  
   final AllRecipeModel recipeModel;
   @override
   Widget build(BuildContext context) {

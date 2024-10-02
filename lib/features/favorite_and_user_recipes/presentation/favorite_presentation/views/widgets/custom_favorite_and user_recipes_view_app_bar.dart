@@ -24,6 +24,7 @@ class CustomFavoriteAndUserRecipeViewAppBar extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           FavoriteRecipesButton(onPressed: () {
+            
             toggleBetweenPages(0, controller);
             // controller.animateToPage(0,
             //     duration: const Duration(milliseconds: 1),
