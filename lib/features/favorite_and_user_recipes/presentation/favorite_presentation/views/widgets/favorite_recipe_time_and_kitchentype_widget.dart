@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
-import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
+import 'package:happy_kitchen/features/favorite_and_user_recipes/data/favorite_data/models/favorite_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/vertical_circular_widget.dart';
 
-class RecipeTimeAndKitchenTypeWidget extends StatelessWidget {
-  const RecipeTimeAndKitchenTypeWidget({
-    super.key,
-    required this.recipeModel,
+class FavoriteRecipeTimeAndKitchenTypeWidget extends StatelessWidget {
+  const FavoriteRecipeTimeAndKitchenTypeWidget({
+    super.key, required this.favoriteModel,
+    
   });
-  final AllRecipeModel recipeModel;
+  final FavoriteModel favoriteModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,11 +17,11 @@ class RecipeTimeAndKitchenTypeWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text("${recipeModel.preparationTime} \nMinutes",
+          Text("${favoriteModel.preparationTime} \nMinutes",
               textAlign: TextAlign.center,
               style: Styles.textStyle14..copyWith(fontWeight: FontWeight.bold)),
           const VerticalCircularWidget(length: 6),
-          Text(("${recipeModel.kitchenType ?? 'Other'}\n Kitchen"),
+          Text(("${favoriteModel.kitchenType} \n Kitchen"),
               textAlign: TextAlign.center,
               style: Styles.textStyle14.copyWith(fontWeight: FontWeight.bold)),
         ],

@@ -9,8 +9,6 @@ sealed class FavoriteRecipeState extends Equatable {
 
 final class FavoriteRecipeInitial extends FavoriteRecipeState {}
 final class FavoriteRecipeSuccess extends FavoriteRecipeState {
- final List<FavoriteModel> favoriteRecipes;
-
- const FavoriteRecipeSuccess({required this.favoriteRecipes});
+ 
 }
 

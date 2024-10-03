@@ -7,7 +7,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 part 'add_recipe_to_favorite_state.dart';
 
 class AddRecipeToFavoriteCubit extends Cubit<AddRecipeToFavoriteState> {
-  AddRecipeToFavoriteCubit() : super(FavoriteRecipeInitial());
+  AddRecipeToFavoriteCubit() : super(AddRecipeToFavoriteInitial());
 
   addRecipeToFavorite(FavoriteModel favorites) async {
     try {

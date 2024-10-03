@@ -96,8 +96,8 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                           recipeTime: time!.round().toString(),
                           ingredients: ingredients!,
                           steps: steps!);
-                      BlocProvider.of<AddRecipeCubit>(context)
-                          .addRecipe(recipe);
+                      triggerAddRecipeCubit(context, recipe);
+                      
                     }
                   },
                   child: Text(
@@ -111,5 +111,10 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
         ),
       ),
     );
+  }
+
+  void triggerAddRecipeCubit(BuildContext context, AddRecipeModel recipe) {
+      BlocProvider.of<AddRecipeCubit>(context)
+        .addRecipe(recipe);
   }
 }

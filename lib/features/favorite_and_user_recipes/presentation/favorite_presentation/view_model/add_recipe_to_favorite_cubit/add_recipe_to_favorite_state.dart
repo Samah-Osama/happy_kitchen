@@ -7,9 +7,7 @@ sealed class AddRecipeToFavoriteState extends Equatable {
   List<Object> get props => [];
 }
 
-final class FavoriteRecipeInitial extends AddRecipeToFavoriteState {}
-
-
+final class AddRecipeToFavoriteInitial extends AddRecipeToFavoriteState {}
 
 final class AddRecipeToFavoriteSuccess extends AddRecipeToFavoriteState {}
 

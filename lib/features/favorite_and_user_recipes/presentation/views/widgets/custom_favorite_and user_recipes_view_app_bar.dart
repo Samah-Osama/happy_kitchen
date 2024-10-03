@@ -16,15 +16,12 @@ class CustomFavoriteAndUserRecipeViewAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var triggerUserRecipeCubit =
-        BlocProvider.of<UserRecipeCubit>(context).getUserRecipes();
     return Padding(
       padding: EdgeInsets.only(top: 20.r, left: 15.r),
       child: AppBar(
         automaticallyImplyLeading: false,
         actions: [
           FavoriteRecipesButton(onPressed: () {
-            
             toggleBetweenPages(0, controller);
             // controller.animateToPage(0,
             //     duration: const Duration(milliseconds: 1),
@@ -32,12 +29,17 @@ class CustomFavoriteAndUserRecipeViewAppBar extends StatelessWidget {
           }),
           MyRecipesButton(
             onPressed: () {
-              triggerUserRecipeCubit;
+              triggerUserRecipeCubit(context);
               toggleBetweenPages(1, controller);
             },
           )
         ],
       ),
     );
+  }
+
+  void triggerUserRecipeCubit(BuildContext context) {
+    var triggerUserRecipe =
+        BlocProvider.of<UserRecipeCubit>(context).getUserRecipes();
   }
 }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/constant.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
+import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/favorite_presentation/view_model/favorite_recipe_cubit/favorite_recipe_cubit.dart';
 import 'package:happy_kitchen/features/home/presentation/views/dashboard_view.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/views/favorite_and_userRecipe_view.dart';
 import 'package:happy_kitchen/features/kitchens/presentation/view/all_kitchen_view.dart';
-
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -20,7 +21,7 @@ List<Widget> views = [
   const DashBoardView(),
   const AllKitchensView(),
   const FavoritesAndUserRecipesView(),
-  
+
   // const AddRecipeView()
   // const FavoritsScreen(),
 //  AllRecipesScreen()
@@ -28,6 +29,12 @@ List<Widget> views = [
 ];
 
 class _HomeViewState extends State<HomeView> {
+  @override
+  void initState() {
+    BlocProvider.of<FavoriteRecipeCubit>(context).getFavoriteRecipe();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

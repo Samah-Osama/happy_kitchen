@@ -12,6 +12,6 @@ class FavoriteRecipeCubit extends Cubit<FavoriteRecipeState> {
   getFavoriteRecipe() {
     var favoriteBox = Hive.box<FavoriteModel>(kFavoriteBox);
     favoriteRecipeList = favoriteBox.values.toList();
-    emit(FavoriteRecipeSuccess(favoriteRecipes: favoriteRecipeList!));
+    emit(FavoriteRecipeSuccess());
   }
 }

@@ -29,7 +29,8 @@ class RecipeWidget extends StatelessWidget {
                 color: color,
                 borderRadius: BorderRadius.circular(30.r),
                 boxShadow: [
-                  BoxShadow(blurStyle: BlurStyle.outer, blurRadius: 2.r)
+                  BoxShadow(blurStyle: BlurStyle.outer, blurRadius: 5.r),
+                
                 ]),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
