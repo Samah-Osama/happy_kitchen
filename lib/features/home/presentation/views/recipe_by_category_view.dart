@@ -10,7 +10,8 @@ class RecipeByCategoryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  CategoryModel categories = ModalRoute.of(context)!.settings.arguments as CategoryModel;
+    CategoryModel categories =
+        ModalRoute.of(context)!.settings.arguments as CategoryModel;
     return Scaffold(
       appBar: AppBar(
         foregroundColor: ThemeColorHelper.getPrimaryColor(context),

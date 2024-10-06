@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:happy_kitchen/core/utils/assets.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
-import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
+import 'package:happy_kitchen/features/home/data/models/all_recipe_model/recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/details_view.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/rating_widget.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_time_kitchentype.dart';
@@ -11,7 +12,7 @@ class RecipeWidget extends StatelessWidget {
   const RecipeWidget({super.key, this.color, required this.recipeModel});
   @override
   final Color? color;
-  final AllRecipeModel recipeModel;
+  final RecipeModel recipeModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -22,7 +23,7 @@ class RecipeWidget extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Container(
-            height: 200.h,
+            height: 300.h,
             width: 190.w,
             padding: EdgeInsets.only(bottom: 5.r),
             decoration: BoxDecoration(
@@ -30,7 +31,6 @@ class RecipeWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30.r),
                 boxShadow: [
                   BoxShadow(blurStyle: BlurStyle.outer, blurRadius: 5.r),
-                
                 ]),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -51,23 +51,24 @@ class RecipeWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 5.r,
+            left: 25.r,
             bottom: 130.r,
             child: CachedNetworkImage(
               errorWidget: (context, url, error) {
-                return const Icon(
-                  Icons.error,
-                  size: 25,
+                return Container(
+                  height: 100.h,
+                  width: 100.w,
+                  decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage(AssetsData.kNoPhoto))),
                 );
-                //   //const CustomImageErrorWidget(
-                //   //   hight: 100,
-                //   //   width: 200,
-                //   // );
               },
               imageBuilder: (context, imageProvider) {
                 return Container(
                   height: 100.h,
-                  width: 200.w,
+                  width: 100.w,
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(

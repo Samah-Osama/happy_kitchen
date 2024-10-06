@@ -13,6 +13,5 @@ final class AddRecipeToFavoriteSuccess extends AddRecipeToFavoriteState {}
 
 final class AddRecipeToFavoriteFailure extends AddRecipeToFavoriteState {
   final String errorMessage;
-
   const AddRecipeToFavoriteFailure({required this.errorMessage});
 }

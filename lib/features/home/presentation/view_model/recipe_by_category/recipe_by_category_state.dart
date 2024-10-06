@@ -12,7 +12,7 @@ final class RecipeByCategoryInitial extends RecipeByCategoryState {}
 final class RecipeByCategoryLoading extends RecipeByCategoryState {}
 
 final class RecipeByCategorySuccess extends RecipeByCategoryState {
-  final List<AllRecipeModel> recipes;
+  final List<RecipeModel> recipes;
 
   const RecipeByCategorySuccess({required this.recipes});
 }

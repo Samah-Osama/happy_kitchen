@@ -5,7 +5,7 @@ import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_li
 
 class AllRecipesBody extends StatefulWidget {
   const AllRecipesBody({super.key});
-  
+
   @override
   State<AllRecipesBody> createState() => _AllRecipesBodyState();
 }

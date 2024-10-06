@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/constant.dart';
-import 'package:happy_kitchen/features/favorite_and_user_recipes/data/favorite_data/models/favorite_model.dart';
+import 'package:happy_kitchen/features/home/data/models/all_recipe_model/recipe_model.dart';
 
 class FavoriteRatingWidget extends StatelessWidget {
   const FavoriteRatingWidget({
@@ -9,7 +9,7 @@ class FavoriteRatingWidget extends StatelessWidget {
     required this.recipe,
   });
 
-  final FavoriteModel recipe;
+  final RecipeModel recipe;
 
   @override
   Widget build(BuildContext context) {

@@ -30,7 +30,9 @@ class _CategoryListViewState extends State<CategoryListView> {
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,
           itemBuilder: (context, index) {
-            return CategoryWidget(categoryModel: categories[index],);
+            return CategoryWidget(
+              categoryModel: categories[index],
+            );
           }),
     );
   }

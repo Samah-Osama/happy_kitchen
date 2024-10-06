@@ -6,6 +6,7 @@ import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/data/my_own_recipe_data/models/add_recipe_model.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/view_model/add_recipe_cubit/add_recipe_cubit.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/view_model/picked_image/picked_image_cubit.dart';
+import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/view_model/user_recipe_cubit/user_recipe_cubit.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/views/widgets/user_recipe_Image.dart';
 import 'package:happy_kitchen/features/favorite_and_user_recipes/presentation/my_own_recipe_presentation/views/widgets/custom_text_form_field.dart';
 
@@ -97,7 +98,6 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
                           ingredients: ingredients!,
                           steps: steps!);
                       triggerAddRecipeCubit(context, recipe);
-                      
                     }
                   },
                   child: Text(
@@ -113,8 +113,11 @@ class _AddRecipeViewBodyState extends State<AddRecipeViewBody> {
     );
   }
 
+  void triggerUserRecipe(BuildContext context) {
+    BlocProvider.of<UserRecipeCubit>(context).getUserRecipes();
+  }
+
   void triggerAddRecipeCubit(BuildContext context, AddRecipeModel recipe) {
-      BlocProvider.of<AddRecipeCubit>(context)
-        .addRecipe(recipe);
+    BlocProvider.of<AddRecipeCubit>(context).addRecipe(recipe);
   }
 }

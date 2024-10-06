@@ -12,7 +12,7 @@ final class AllRecipesInitial extends AllRecipesState {}
 final class NoMoreRecipeState extends AllRecipesState {}
 
 final class AllRecipesSuccess extends AllRecipesState {
-  final List<AllRecipeModel> allRecipes;
+  final List<RecipeModel> allRecipes;
 
   const AllRecipesSuccess({required this.allRecipes});
 }

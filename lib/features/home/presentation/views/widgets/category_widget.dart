@@ -10,7 +10,8 @@ import 'package:happy_kitchen/features/home/presentation/views/recipe_by_categor
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({
-    super.key, required this.categoryModel,
+    super.key,
+    required this.categoryModel,
   });
   // final AllRecipeModel recipeModel;
   final CategoryModel categoryModel;
@@ -21,9 +22,9 @@ class CategoryWidget extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           BlocProvider.of<RecipeByCategoryCubit>(context)
-              .getRecipesByCategory(category:categoryModel.categoryName);
-          Navigator.pushNamed(context, RecipeByCategoryView.id,arguments: categoryModel
-              );
+              .getRecipesByCategory(category: categoryModel.categoryName);
+          Navigator.pushNamed(context, RecipeByCategoryView.id,
+              arguments: categoryModel);
         },
         child: Container(
           width: 160.r,

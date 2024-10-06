@@ -2,22 +2,22 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:happy_kitchen/core/errors/failure.dart';
 import 'package:happy_kitchen/core/utils/services/api_service.dart';
-import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
+import 'package:happy_kitchen/features/home/data/models/all_recipe_model/recipe_model.dart';
 import 'package:happy_kitchen/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImplementation implements HomeRepo {
   final ApiService apiService;
   HomeRepoImplementation({required this.apiService});
   @override
-  Future<Either<Failure, List<AllRecipeModel>>> fetchAllRecipes(
+  Future<Either<Failure, List<RecipeModel>>> fetchAllRecipes(
       {int pageNumber = 0}) async {
     try {
       var data = await apiService.get(
           endpoint:
               'recipes/AllRecipesByLanguageAndKitchenType?language=EN&page=$pageNumber&size=2');
-      List<AllRecipeModel> allRecipeList = [];
+      List<RecipeModel> allRecipeList = [];
       for (var recipe in data) {
-        allRecipeList.add(AllRecipeModel.fromJson(recipe));
+        allRecipeList.add(RecipeModel.fromJson(recipe));
       }
 
       return right(allRecipeList);
@@ -37,14 +37,14 @@ class HomeRepoImplementation implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<AllRecipeModel>>> fetchRecipesDetails(
+  Future<Either<Failure, List<RecipeModel>>> fetchRecipesDetails(
       {required int id}) {
     // TODO: implement fetchRecipesDetails
     throw UnimplementedError();
   }
 
   @override
-  Future<Either<Failure, List<AllRecipeModel>>> fetchAllRecipesByCategory(
+  Future<Either<Failure, List<RecipeModel>>> fetchAllRecipesByCategory(
       {required String category}) async {
     try {
       var data = await apiService.get(
@@ -52,9 +52,9 @@ class HomeRepoImplementation implements HomeRepo {
               'recipes/AllRecipesByLanguage?language=EN&category=$category&page=0&size=10');
 
       print("this is category $category");
-      List<AllRecipeModel> allRecipeList = [];
+      List<RecipeModel> allRecipeList = [];
       for (var recipe in data) {
-        allRecipeList.add(AllRecipeModel.fromJson(recipe));
+        allRecipeList.add(RecipeModel.fromJson(recipe));
       }
       // print(allRecipeList);
 

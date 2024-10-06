@@ -9,8 +9,6 @@ import 'package:happy_kitchen/features/home/presentation/views/widgets/custom_sl
 import 'package:happy_kitchen/features/home/presentation/views/widgets/custome_text.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/recipe_list_body.dart';
 
-
-
 class DashBoardView extends StatefulWidget {
   const DashBoardView({super.key});
 

@@ -20,22 +20,24 @@ class RecipeByCategoryBody extends StatelessWidget {
                   height: 50.r,
                 ),
               ),
-               SliverFillRemaining(child:  GridView.builder(
-                clipBehavior: Clip.none,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount:state.recipes.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1.0,
-                    mainAxisSpacing: 70.r,
-                    crossAxisSpacing: 10.r,
-                    crossAxisCount: 2),
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15.r),
-                    child: RecipeWidget(recipeModel: state.recipes[index]),
-                  );
-                },
-              ),)
+              SliverFillRemaining(
+                child: GridView.builder(
+                  clipBehavior: Clip.none,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: state.recipes.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      childAspectRatio: 1.0,
+                      mainAxisSpacing: 70.r,
+                      crossAxisSpacing: 10.r,
+                      crossAxisCount: 2),
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15.r),
+                      child: RecipeWidget(recipeModel: state.recipes[index]),
+                    );
+                  },
+                ),
+              )
             ],
           );
         } else if (state is RecipeByCategoryFailure) {

@@ -9,11 +9,11 @@ class MyOwnRecipesViewBody extends StatelessWidget {
   const MyOwnRecipesViewBody({super.key});
   @override
   Widget build(BuildContext context) {
+    List<AddRecipeModel> recipe =
+        BlocProvider.of<UserRecipeCubit>(context).recipe ?? [];
     return BlocBuilder<UserRecipeCubit, UserRecipeState>(
         builder: (context, state) {
-      List<AddRecipeModel> recipe =
-          BlocProvider.of<UserRecipeCubit>(context).recipe ?? [];
-      print(recipe);
+      // print(recipe);
       return SliverGrid(
         delegate: SliverChildBuilderDelegate(childCount: recipe.length,
             (context, index) {

@@ -1,36 +1,50 @@
-import 'package:equatable/equatable.dart';
 
-class AllRecipeModel extends Equatable {
+import 'package:hive/hive.dart';
+part 'recipe_model.g.dart';
+@HiveType(typeId: 2)
+class RecipeModel extends HiveObject {
+  @HiveField(0)
   final int id;
+  @HiveField(1)
   final String title;
+  @HiveField(2)
   final String description;
-  final String ?image;
+  @HiveField(3)
+  final String? image;
+  @HiveField(4)
   final String preparationTime;
+  @HiveField(5)
   final String category;
+  @HiveField(6)
   final int? serving;
+  @HiveField(7)
   final bool? isVegan;
+  @HiveField(8)
   final String? fat;
+  @HiveField(9)
   final bool? isHalal;
+  @HiveField(10)
   final int? rating;
+  @HiveField(11)
   final String? kitchenType;
 
-  const AllRecipeModel({
-   required   this.id,
-   required   this.title,
- required     this.description,
-     this.image,
- required     this.preparationTime,
- required     this.category,
+   RecipeModel({
+    required this.id,
+    required this.title,
+    required this.description,
+    this.image,
+    required this.preparationTime,
+    required this.category,
     this.serving,
     this.isVegan,
     this.fat,
     this.isHalal,
-     this.rating,
+    this.rating,
     this.kitchenType,
   });
 
-  factory AllRecipeModel.fromJson(Map<String, dynamic> json) {
-    return AllRecipeModel(
+  factory RecipeModel.fromJson(Map<String, dynamic> json) {
+    return RecipeModel(
       id: json['id'] as int,
       title: json['title'] as String,
       description: json['description'] as String,

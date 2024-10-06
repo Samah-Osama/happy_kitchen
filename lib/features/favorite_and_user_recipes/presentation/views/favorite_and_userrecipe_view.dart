@@ -26,7 +26,7 @@ class _FavoritesAndUserRecipesViewState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100.r),
+        preferredSize: Size.fromHeight(70.r),
         child: CustomFavoriteAndUserRecipeViewAppBar(controller: controller),
       ),
       floatingActionButton: const CustomAddRecipeIcon(),

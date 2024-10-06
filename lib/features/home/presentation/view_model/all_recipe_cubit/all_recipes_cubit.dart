@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
+import 'package:happy_kitchen/features/home/data/models/all_recipe_model/recipe_model.dart';
 import 'package:happy_kitchen/features/home/data/repos/home_repo.dart';
 
 part 'all_recipes_state.dart';
@@ -8,9 +8,9 @@ part 'all_recipes_state.dart';
 class AllRecipesCubit extends Cubit<AllRecipesState> {
   AllRecipesCubit(this.homeRepo) : super(AllRecipesInitial());
   final HomeRepo homeRepo;
-  List<AllRecipeModel> allRecipeList = [];
+  List<RecipeModel> allRecipeList = [];
   bool thereIsMoreData = false;
-  Future<void> getAllRecipes({int pageNumber = 0 }) async {
+  Future<void> getAllRecipes({int pageNumber = 0}) async {
     if (pageNumber == 0) {
       emit(AllRecipesLoading());
     } else {
@@ -27,7 +27,7 @@ class AllRecipesCubit extends Cubit<AllRecipesState> {
       }
     }, (newRecipeList) {
       if (newRecipeList.isNotEmpty) {
-       thereIsMoreData = true;
+        thereIsMoreData = true;
         allRecipeList.addAll(newRecipeList);
         emit(
           AllRecipesSuccess(allRecipes: allRecipeList),

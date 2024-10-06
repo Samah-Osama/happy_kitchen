@@ -20,6 +20,5 @@ final class KitchensTypeSuccess extends KitchensTypeState {
 final class KitchensTypeFailure extends KitchensTypeState {
   final String errorMessage;
 
- const KitchensTypeFailure({required this.errorMessage});
-
+  const KitchensTypeFailure({required this.errorMessage});
 }

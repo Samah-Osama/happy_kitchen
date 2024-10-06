@@ -16,7 +16,7 @@ class AllRecipesCategoryWidget extends StatefulWidget {
 
 class _AllRecipesCategoryWidgetState extends State<AllRecipesCategoryWidget> {
   int currentIndex = 0;
-  
+
   @override
   Widget build(BuildContext context) {
     return Row(

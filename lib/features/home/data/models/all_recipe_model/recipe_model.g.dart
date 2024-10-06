@@ -1,39 +1,39 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'favorite_model.dart';
+part of 'recipe_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class FavoriteModelAdapter extends TypeAdapter<FavoriteModel> {
+class RecipeModelAdapter extends TypeAdapter<RecipeModel> {
   @override
-  final int typeId = 1;
+  final int typeId = 2;
 
   @override
-  FavoriteModel read(BinaryReader reader) {
+  RecipeModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return FavoriteModel(
+    return RecipeModel(
       id: fields[0] as int,
       title: fields[1] as String,
       description: fields[2] as String,
-      image: fields[3] as String,
+      image: fields[3] as String?,
       preparationTime: fields[4] as String,
       category: fields[5] as String,
       serving: fields[6] as int?,
       isVegan: fields[7] as bool?,
       fat: fields[8] as String?,
       isHalal: fields[9] as bool?,
-      rating: fields[10] as int,
-      kitchenType: fields[11] as String,
+      rating: fields[10] as int?,
+      kitchenType: fields[11] as String?,
     );
   }
 
   @override
-  void write(BinaryWriter writer, FavoriteModel obj) {
+  void write(BinaryWriter writer, RecipeModel obj) {
     writer
       ..writeByte(12)
       ..writeByte(0)
@@ -68,7 +68,7 @@ class FavoriteModelAdapter extends TypeAdapter<FavoriteModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is FavoriteModelAdapter &&
+      other is RecipeModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

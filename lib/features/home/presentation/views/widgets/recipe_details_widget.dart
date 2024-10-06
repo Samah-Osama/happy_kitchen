@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/constant.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
 import 'package:happy_kitchen/core/utils/theme_color_helper.dart';
-import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
+import 'package:happy_kitchen/features/home/data/models/all_recipe_model/recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/dash_mark.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/short_desc.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/steps_and_ingredient_widget.dart';
@@ -13,7 +13,7 @@ class RecipeDetailsWidget extends StatelessWidget {
     super.key,
     required this.recipeModel,
   });
-  final AllRecipeModel recipeModel;
+  final RecipeModel recipeModel;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,7 +35,7 @@ class RecipeDetailsWidget extends StatelessWidget {
               SizedBox(
                 width: MediaQuery.of(context).size.width * .5,
                 child: Text(
-                  recipeModel.title??'No title',
+                  recipeModel.title ?? 'No title',
                   textAlign: TextAlign.center,
                   style: Styles.textStyle28.copyWith(color: kWhiteColor),
                 ),
@@ -45,8 +45,6 @@ class RecipeDetailsWidget extends StatelessWidget {
               SizedBox(height: 28.h),
               StepsAndIngredientWidget(recipeModel: recipeModel),
               SizedBox(height: 28.h),
-             
-
             ],
           ),
         ),

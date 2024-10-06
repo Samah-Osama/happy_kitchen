@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:happy_kitchen/core/utils/styles.dart';
-import 'package:happy_kitchen/features/home/data/models/all_recipe_model/all_recipe_model.dart';
+import 'package:happy_kitchen/features/home/data/models/all_recipe_model/recipe_model.dart';
 import 'package:happy_kitchen/features/home/presentation/views/widgets/vertical_circular_widget.dart';
 
 class RecipeTimeAndKitchenTypeWidget extends StatelessWidget {
@@ -9,7 +9,7 @@ class RecipeTimeAndKitchenTypeWidget extends StatelessWidget {
     super.key,
     required this.recipeModel,
   });
-  final AllRecipeModel recipeModel;
+  final RecipeModel recipeModel;
   @override
   Widget build(BuildContext context) {
     return Padding(

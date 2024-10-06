@@ -16,7 +16,7 @@ void setupServiceLocator() {
       apiService: getIt.get<ApiService>(),
     ),
   );
-   getIt.registerSingleton<KitchenTypeRepoImpel>(
+  getIt.registerSingleton<KitchenTypeRepoImpel>(
     KitchenTypeRepoImpel(
       apiService: getIt.get<ApiService>(),
     ),
